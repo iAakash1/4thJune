@@ -1,272 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aakash Trimbak Jawle - Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aakash Trimbak Jawle - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Theme Toggle -->
-  <div class="theme-toggle-wrapper">
-    <input type="checkbox" id="theme-toggle" aria-label="Toggle Theme">
-    <label for="theme-toggle" class="theme-toggle-label">
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" aria-label="Toggle Theme">
       <i class="fas fa-moon"></i>
-      <i class="fas fa-sun"></i>
-    </label>
-  </div>
+    </button>
 
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="container">
-      <h1 class="logo">ATJ</h1>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#achievements">Achievements</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section id="home" class="section hero">
-    <div class="hero-bg"></div>
-    <div class="container">
-      <h2 class="typing-animation">Aakash Trimbak Jawle</h2>
-      <p class="subtitle">Full-Stack Developer | AI/ML Innovator</p>
-      <div class="cta-buttons">
-        <a href="#projects" class="btn neon-btn">Discover Projects</a>
-        <a href="#contact" class="btn pulse-btn">Let's Connect</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="section">
-    <div class="container">
-      <h2 class="section-title">About Me</h2>
-      <div class="about-content">
-        <p>I'm Aakash Trimbak Jawle, a Computer Engineering student at PCCOE, Pune, fueled by a passion for AI, machine learning, and full-stack development.</p>
-        <p>With a knack for Data Structures, Algorithms, and tools like TensorFlow, Python, and JavaScript, I build projects that solve real-world problems, from AI-driven crop disease detection to sleek web apps.</p>
-        <p>As an ACMW Coordinator and two-time Smart India Hackathon participant, I blend tech innovation with community impact, guided by Universal Human Values.</p>
-        <p>Ready to create something epic? Let's make it happen!</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Education Section -->
-  <section id="education" class="section">
-    <div class="container">
-      <h2 class="section-title">Education</h2>
-      <div class="education-item">
-        <h3>PCCOE, Pimpri Chinchwad College of Engineering</h3>
-        <p>B.Tech - Computer Engineering | 2023 - 2027 | CGPA: 6.45</p>
-        <p class="coursework">Coursework: DSA, DBMS, C++, OOPS, Gen AI, Neural Networks, ML, Python</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills" class="section">
-    <div class="container">
-      <h2 class="section-title">Skills & Expertise</h2>
-      <div class="skills-grid">
-        <div class="skill"><i class="fab fa-python"></i> Python</div>
-        <div class="skill"><i class="fas fa-code"></i> C++</div>
-        <div class="skill"><i class="fab fa-js"></i> JavaScript</div>
-        <div class="skill"><i class="fas fa-brain"></i> TensorFlow</div>
-        <div class="skill"><i class="fas fa-network-wired"></i> Keras</div>
-        <div class="skill"><i class="fas fa-chart-line"></i> Scikit-learn</div>
-        <div class="skill"><i class="fas fa-cubes"></i> DSA</div>
-        <div class="skill"><i class="fas fa-database"></i> DBMS</div>
-        <div class="skill"><i class="fas fa-object-group"></i> OOPS</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="section">
-    <div class="container">
-      <h2 class="section-title">Featured Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card" data-modal="modal1">
-          <img src="cotton.jpeg" alt="Cotton Crop Disease Prediction" class="project-img">
-          <h3>Cotton Crop Disease Prediction</h3>
-          <p class="stack">Python, TensorFlow, Keras, MobileNetV2</p>
-          <p>AI-powered crop disease detection with 93% accuracy and multilingual support.</p>
-          <div class="tags">
-            <span class="badge">AI</span>
-            <span class="badge">Machine Learning</span>
-            <span class="badge">Agriculture</span>
-          </div>
-          <div class="links">
-            <a href="#" class="btn neon-btn">View Code</a>
-            <a href="#" class="btn pulse-btn">Live Demo</a>
-          </div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">ATJ</h1>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
-        <div class="project-card" data-modal="modal2">
-          <img src="fuel.jpeg" alt="Fuel Consumption Prediction" class="project-img">
-          <h3>Fuel Consumption Prediction</h3>
-          <p class="stack">Python, Scikit-learn, Data Analysis</p>
-          <p>ML tool for vehicle fuel efficiency with vibrant visualizations.</p>
-          <div class="tags">
-            <span class="badge">Machine Learning</span>
-            <span class="badge">Data Science</span>
-          </div>
-          <div class="links">
-            <a href="#" class="btn neon-btn">View Code</a>
-            <a href="#" class="btn pulse-btn">Live Demo</a>
-          </div>
-        </div>
-        <div class="project-card" data-modal="modal3">
-          <img src="taskmanager.webp" alt="Task Manager" class="project-img">
-          <h3>Task Manager for Students</h3>
-          <p class="stack">HTML, CSS, JavaScript</p>
-          <p>Queue-based task manager for student productivity.</p>
-          <div class="tags">
-            <span class="badge">Web Development</span>
-            <span class="badge">Productivity</span>
-          </div>
-          <div class="links">
-            <a href="#" class="btn neon-btn">View Code</a>
-            <a href="#" class="btn pulse-btn">Live Demo</a>
-          </div>
-        </div>
-        <div class="project-card" data-modal="modal4">
-          <img src="finance.webp" alt="Finance Tracker" class="project-img">
-          <h3>Personalized Finance Tracker</h3>
-          <p class="stack">HTML, CSS, JavaScript</p>
-          <p>Stack-based expense tracker with sleek UI.</p>
-          <div class="tags">
-            <span class="badge">Web Development</span>
-            <span class="badge">Finance</span>
-          </div>
-          <div class="links">
-            <a href="#" class="btn neon-btn">View Code</a>
-            <a href="#" class="btn pulse-btn">Live Demo</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </nav>
 
-  <!-- Achievements Section -->
-  <section id="achievements" class="section">
-    <div class="container">
-      <h2 class="section-title">Achievements</h2>
-      <div class="achievements-grid">
-        <div class="achievement">
-          <h3>ML Wars Runner-Up</h3>
-          <p>PCCOE TechFest 2025</p>
-          <p>Secured second place in a competitive ML challenge.</p>
+    <!-- Hero Section -->
+    <section id="home" class="section hero">
+        <div class="container">
+            <h2 class="typing-animation">Aakash Trimbak Jawle</h2>
+            <p class="subtitle">Full-Stack Developer | AI/ML Engineer</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn">View Projects</a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
         </div>
-        <div class="achievement">
-          <h3>HackerRank 5-Star Achievement</h3>
-          <p>2024</p>
-          <p>Earned 5 stars in C++ on HackerRank.</p>
-        </div>
-        <div class="achievement">
-          <h3>Smart India Hackathon Participant</h3>
-          <p>2023 - 2024</p>
-          <p>Competed twice in India's premier hackathon.</p>
-        </div>
-        <div class="achievement">
-          <h3>ACMW Coordinator</h3>
-          <p>2024 - Present</p>
-          <p>Led initiatives for women in computing.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="section">
-    <div class="container">
-      <h2 class="section-title">Let's Connect</h2>
-      <form id="contact-form">
-        <input type="text" id="name" placeholder="Your Name" required>
-        <input type="email" id="email" placeholder="Your Email" required>
-        <textarea id="message" placeholder="Your Message" required></textarea>
-        <button type="submit" class="btn neon-btn">Send Message</button>
-      </form>
-      <div class="contact-info">
-        <p>Email: aakashjawle1017@gmail.com</p>
-        <p>Location: Nigdi, Pune, Maharashtra</p>
-        <div class="social-links">
-          <a href="#"><i class="fab fa-linkedin"></i></a>
-          <a href="#"><i class="fab fa-github"></i></a>
-          <a href="#"><i class="fab fa-leetcode"></i></a>
-          <a href="#"><i class="fab fa-hackerrank"></i></a>
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p>I'm Aakash Trimbak Jawle, a Computer Engineering student at PCCOE, Pune, dedicated to building innovative solutions in AI, machine learning, and full-stack development.</p>
+                <p>My expertise includes Data Structures, Algorithms, and technologies like TensorFlow, Python, and JavaScript, with projects ranging from AI-driven crop disease detection to web applications.</p>
+                <p>As an ACMW Coordinator and two-time Smart India Hackathon participant, I strive to combine technical excellence with community impact, guided by Universal Human Values.</p>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>Designed & Built by Aakash Trimbak Jawle © 2025</p>
-  </footer>
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-item">
+                <h3>PCCOE, Pimpri Chinchwad College of Engineering</h3>
+                <p>B.Tech - Computer Engineering | 2023 - 2027 | CGPA: 6.45</p>
+                <p class="coursework">Coursework: DSA, DBMS, C++, OOPS, Gen AI, Neural Networks, ML, Python</p>
+            </div>
+        </div>
+    </section>
 
-  <!-- Modals -->
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <span class="close">×</span>
-      <img src="cotton.jpeg" alt="Cotton Crop Disease Prediction" class="modal-img">
-      <h3>Cotton Crop Disease Prediction</h3>
-      <p>AI system with 93% accuracy and multilingual support.</p>
-      <p><strong>Tech Stack:</strong> Python, TensorFlow, Keras, MobileNetV2</p>
-      <div class="modal-links">
-        <a href="#" class="btn neon-btn">View Code</a>
-        <a href="#" class="btn pulse-btn">Live Demo</a>
-      </div>
-    </div>
-  </div>
-  <div id="modal2" class="modal">
-    <div class="modal-content">
-      <span class="close">×</span>
-      <img src="fuel.jpeg" alt="Fuel Consumption Prediction" class="modal-img">
-      <h3>Fuel Consumption Prediction</h3>
-      <p>ML tool for vehicle fuel efficiency with visualizations.</p>
-      <p><strong>Tech Stack:</strong> Python, Scikit-learn, Data Analysis</p>
-      <div class="modal-links">
-        <a href="#" class="btn neon-btn">View Code</a>
-        <a href="#" class="btn pulse-btn">Live Demo</a>
-      </div>
-    </div>
-  </div>
-  <div id="modal3" class="modal">
-    <div class="modal-content">
-      <span class="close">×</span>
-      <img src="taskmanager.webp" alt="Task Manager" class="modal-img">
-      <h3>Task Manager for Students</h3>
-      <p>Queue-based system for student productivity.</p>
-      <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript</p>
-      <div class="modal-links">
-        <a href="#" class="btn neon-btn">View Code</a>
-        <a href="#" class="btn pulse-btn">Live Demo</a>
-      </div>
-    </div>
-  </div>
-  <div id="modal4" class="modal">
-    <div class="modal-content">
-      <span class="close">×</span>
-      <img src="finance.webp" alt="Finance Tracker" class="modal-img">
-      <h3>Personalized Finance Tracker</h3>
-      <p>Stack-based expense tracker with sleek UI.</p>
-      <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript</p>
-      <div class="modal-links">
-        <a href="#" class="btn neon-btn">View Code</a>
-        <a href="#" class="btn pulse-btn">Live Demo</a>
-      </div>
-    </div>
-  </div>
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill">Python</div>
+                <div class="skill">C++</div>
+                <div class="skill">JavaScript</div>
+                <div class="skill">TensorFlow</div>
+                <div class="skill">Keras</div>
+                <div class="skill">Scikit-learn</div>
+                <div class="skill">DSA</div>
+                <div class="skill">DBMS</div>
+                <div class="skill">OOPS</div>
+            </div>
+        </div>
+    </section>
 
-  <script src="script.js"></script>
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card" data-modal="modal1">
+                    <img src="cotton.jpeg" alt="Cotton Crop Disease Prediction" class="project-img">
+                    <h3>Cotton Crop Disease Prediction</h3>
+                    <p class="stack">Python, TensorFlow, Keras, MobileNetV2</p>
+                    <p>AI system with 93% accuracy for crop disease detection.</p>
+                    <div class="links">
+                        <a href="#" class="btn btn-small">Code</a>
+                        <a href="#" class="btn btn-small btn-outline">Demo</a>
+                    </div>
+                </div>
+                <div class="project-card" data-modal="modal2">
+                    <img src="fuel.jpeg" alt="Fuel Consumption Prediction" class="project-img">
+                    <h3>Fuel Consumption Prediction</h3>
+                    <p class="stack">Python, Scikit-learn, Data Analysis</p>
+                    <p>ML tool for vehicle fuel efficiency prediction.</p>
+                    <div class="links">
+                        <a href="#" class="btn btn-small">Code</a>
+                        <a href="#" class="btn btn-small btn-outline">Demo</a>
+                    </div>
+                </div>
+                <div class="project-card" data-modal="modal3">
+                    <img src="taskmanager.webp" alt="Task Manager" class="project-img">
+                    <h3>Task Manager for Students</h3>
+                    <p class="stack">HTML, CSS, JavaScript</p>
+                    <p>Queue-based task management system.</p>
+                    <div class="links">
+                        <a href="#" class="btn btn-small">Code</a>
+                        <a href="#" class="btn btn-small btn-outline">Demo</a>
+                    </div>
+                </div>
+                <div class="project-card" data-modal="modal4">
+                    <img src="finance.webp" alt="Finance Tracker" class="project-img">
+                    <h3>Personalized Finance Tracker</h3>
+                    <p class="stack">HTML, CSS, JavaScript</p>
+                    <p>Stack-based expense tracking application.</p>
+                    <div class="links">
+                        <a href="#" class="btn btn-small">Code</a>
+                        <a href="#" class="btn btn-small btn-outline">Demo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="section">
+        <div class="container">
+            <h2 class="section-title">Achievements</h2>
+            <div class="achievements-grid">
+                <div class="achievement">
+                    <h3>ML Wars Runner-Up</h3>
+                    <p>PCCOE TechFest 2025</p>
+                    <p>Secured second place in an ML challenge.</p>
+                </div>
+                <div class="achievement">
+                    <h3>HackerRank 5-Star</h3>
+                    <p>2024</p>
+                    <p>Earned 5 stars in C++ on HackerRank.</p>
+                </div>
+                <div class="achievement">
+                    <h3>Smart India Hackathon</h3>
+                    <p>2023 - 2024</p>
+                    <p>Participated twice in national hackathons.</p>
+                </div>
+                <div class="achievement">
+                    <h3>ACMW Coordinator</h3>
+                    <p>2024 - Present</p>
+                    <p>Led initiatives for women in computing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <form id="contact-form">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+            <div class="contact-info">
+                <p>Email: aakashjawle1017@gmail.com</p>
+                <p>Location: Nigdi, Pune, Maharashtra</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-leetcode"></i></a>
+                    <a href="#"><i class="fab fa-hackerrank"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Designed by Aakash Trimbak Jawle © 2025</p>
+    </footer>
+
+    <!-- Modals -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <img src="cotton.jpeg" alt="Cotton Crop Disease Prediction" class="modal-img">
+            <h3>Cotton Crop Disease Prediction</h3>
+            <p>AI system with 93% accuracy for crop disease detection.</p>
+            <p><strong>Tech Stack:</strong> Python, TensorFlow, Keras, MobileNetV2</p>
+            <div class="modal-links">
+                <a href="#" class="btn btn-small">Code</a>
+                <a href="#" class="btn btn-small btn-outline">Demo</a>
+            </div>
+        </div>
+    </div>
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <img src="fuel.jpeg" alt="Fuel Consumption Prediction" class="modal-img">
+            <h3>Fuel Consumption Prediction</h3>
+            <p>ML tool for vehicle fuel efficiency prediction.</p>
+            <p><strong>Tech Stack:</strong> Python, Scikit-learn, Data Analysis</p>
+            <div class="modal-links">
+                <a href="#" class="btn btn-small">Code</a>
+                <a href="#" class="btn btn-small btn-outline">Demo</a>
+            </div>
+        </div>
+    </div>
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <img src="taskmanager.webp" alt="Task Manager" class="modal-img">
+            <h3>Task Manager for Students</h3>
+            <p>Queue-based task management system.</p>
+            <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript</p>
+            <div class="modal-links">
+                <a href="#" class="btn btn-small">Code</a>
+                <a href="#" class="btn btn-small btn-outline">Demo</a>
+            </div>
+        </div>
+    </div>
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <img src="finance.webp" alt="Finance Tracker" class="modal-img">
+            <h3>Personalized Finance Tracker</h3>
+            <p>Stack-based expense tracking application.</p>
+            <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript</p>
+            <div class="modal-links">
+                <a href="#" class="btn btn-small">Code</a>
+                <a href="#" class="btn btn-small btn-outline">Demo</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

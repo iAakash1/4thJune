@@ -21,30 +21,33 @@ window.addEventListener('scroll', () => {
 // Theme Toggle
 const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
-themeToggle.addEventListener('change', () => {
+themeToggle.addEventListener('click', () => {
   body.classList.toggle('dark-mode');
+  themeToggle.innerHTML = body.classList.contains('dark-mode')
+    ? '<i class="fas fa-sun"></i>'
+    : '<i class="fas fa-moon"></i>';
   localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
 });
 
 // Load Theme
 if (localStorage.getItem('theme') === 'dark') {
   body.classList.add('dark-mode');
-  themeToggle.checked = true;
+  themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
 }
 
 // Scroll Reveal
-const revealElements = document.querySelectorAll('.section, .project-card, .achievement');
+const revealElements = document.querySelectorAll('.section');
 const revealOnScroll = () => {
   const windowHeight = window.innerHeight;
   revealElements.forEach(el => {
     const elTop = el.getBoundingClientRect().top;
-    if (elTop < windowHeight - 100) {
+    if (elTop < windowHeight - 50) {
       el.classList.add('reveal');
     }
   });
 };
 window.addEventListener('scroll', revealOnScroll);
-revealOnScroll(); // Initial check
+revealOnScroll();
 
 // Modal Functionality
 const modals = document.querySelectorAll('.modal');
@@ -88,8 +91,6 @@ if (contactForm) {
     alert(`Message sent!\nName: ${name}\nEmail: ${email}\nMessage: ${message}`);
     contactForm.reset();
   });
-} else {
-  console.error('Contact form not found');
 }
 
 // Typing Animation
@@ -102,10 +103,8 @@ if (typingText) {
     if (i < text.length) {
       typingText.textContent += text.charAt(i);
       i++;
-      setTimeout(type, 100);
+      setTimeout(type, 80);
     }
   }
-  setTimeout(type, 500);
-} else {
-  console.error('Typing animation element not found');
+  setTimeout(type, 300);
 }
