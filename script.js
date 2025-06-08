@@ -1,35 +1,3 @@
-// GSAP Animations
-gsap.registerPlugin(ScrollTrigger);
-
-// Animate sections on scroll
-gsap.utils.toArray('.section').forEach(section => {
-  gsap.from(section, {
-    opacity: 0,
-    y: 50,
-    duration: 1,
-    scrollTrigger: {
-      trigger: section,
-      start: 'top 80%',
-      end: 'bottom 20%',
-      toggleActions: 'play none none reverse'
-    }
-  });
-});
-
-// Animate project cards
-gsap.utils.toArray('.project-card').forEach((card, i) => {
-  gsap.from(card, {
-    opacity: 0,
-    x: i % 2 === 0 ? -100 : 100,
-    duration: 1,
-    delay: i * 0.2,
-    scrollTrigger: {
-      trigger: card,
-      start: 'top 90%'
-    }
-  });
-});
-
 // Smooth Scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
@@ -67,31 +35,19 @@ if (localStorage.getItem('theme') === 'dark') {
   themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
 }
 
-// Particles.js for Hero Background
-particlesJS('particles-js', {
-  particles: {
-    number: { value: 80, density: { enable: true, value_area: 800 } },
-    color: { value: '#00b894' },
-    shape: { type: 'circle' },
-    opacity: { value: 0.5, random: true },
-    size: { value: 3, random: true },
-    line_linked: { enable: true, distance: 150, color: '#00b894', opacity: 0.4, width: 1 },
-    move: { enable: true, speed: 2, direction: 'none', random: true }
-  },
-  interactivity: {
-    detect_on: 'canvas',
-    events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' } },
-    modes: { repulse: { distance: 100 }, push: { particles_nb: 4 } }
-  }
-});
-
-// Vanilla Tilt for 3D Effects
-VanillaTilt.init(document.querySelectorAll('[data-tilt]'), {
-  max: 15,
-  speed: 400,
-  glare: true,
-  'max-glare': 0.5
-});
+// Scroll Reveal
+const revealElements = document.querySelectorAll('.section');
+const revealOnScroll = () => {
+  const windowHeight = window.innerHeight;
+  revealElements.forEach(el => {
+    const elTop = el.getBoundingClientRect().top;
+    if (elTop < windowHeight - 50) {
+      el.classList.add('reveal');
+    }
+  });
+};
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll(); // Initial check
 
 // Modal Functionality
 const modals = document.querySelectorAll('.modal');
@@ -101,7 +57,12 @@ const closes = document.querySelectorAll('.close');
 projectCards.forEach(card => {
   card.addEventListener('click', () => {
     const modalId = card.getAttribute('data-modal');
-    document.getElementById(modalId).style.display = 'flex';
+    const modal = document.getElementById(modalId);
+    if (modal) {
+      modal.style.display = 'flex';
+    } else {
+      console.error(`Modal with ID ${modalId} not found`);
+    }
   });
 });
 
@@ -120,26 +81,34 @@ window.addEventListener('click', e => {
 });
 
 // Contact Form Submission
-document.getElementById('contact-form').addEventListener('submit', e => {
-  e.preventDefault();
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const message = document.getElementById('message').value;
-  alert(`Message sent!\nName: ${name}\nEmail: ${email}\nMessage: ${message}`);
-  document.getElementById('contact-form').reset();
-});
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    alert(`Message sent!\nName: ${name}\nEmail: ${email}\nMessage: ${message}`);
+    contactForm.reset();
+  });
+} else {
+  console.error('Contact form not found');
+}
 
 // Typing Animation
 const typingText = document.querySelector('.typing-animation');
-const text = typingText.textContent;
-typingText.textContent = '';
-let i = 0;
-
-function type() {
-  if (i < text.length) {
-    typingText.textContent += text.charAt(i);
-    i++;
-    setTimeout(type, 100);
+if (typingText) {
+  const text = typingText.textContent;
+  typingText.textContent = '';
+  let i = 0;
+  function type() {
+    if (i < text.length) {
+      typingText.textContent += text.charAt(i);
+      i++;
+      setTimeout(type, 80);
+    }
   }
+  setTimeout(type, 300);
+} else {
+  console.error('Typing animation element not found');
 }
-setTimeout(type, 500);
