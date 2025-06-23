@@ -9,13 +9,10 @@ class PortfolioWebsite {
     init() {
         this.setTheme(this.currentTheme);
         this.setupEventListeners();
-        this.initializeAnimations();
         this.setupTypingAnimation();
         this.setupScrollAnimations();
         this.setupMobileMenu();
         this.setupBackToTop();
-        this.setupCursorFollower();
-        this.setupFormHandling();
         this.setupCounterAnimation();
         this.setupSmoothScrolling();
         this.setupActiveNavigation();
@@ -57,12 +54,6 @@ class PortfolioWebsite {
         if (themeToggle) {
             themeToggle.addEventListener('click', () => this.toggleTheme());
         }
-
-        // Form submission
-        const contactForm = document.querySelector('.contact-form');
-        if (contactForm) {
-            contactForm.addEventListener('submit', (e) => this.handleFormSubmission(e));
-        }
     }
 
     // Loading Screen
@@ -95,97 +86,52 @@ class PortfolioWebsite {
         typeCommand();
     }
 
-    // Typing Animation
+    // Typing Animation (using manual implementation since Typed.js is not guaranteed)
     setupTypingAnimation() {
         const typedElement = document.getElementById('typed-text');
-        if (typedElement && typeof Typed !== 'undefined') {
-            new Typed('#typed-text', {
-                strings: [
-                    'Full Stack Developer',
-                    'Computer Engineering Student',
-                    'Data Science Enthusiast',
-                    'Problem Solver',
-                    'Tech Innovator'
-                ],
-                typeSpeed: 80,
-                backSpeed: 50,
-                backDelay: 2000,
-                loop: true,
-                showCursor: false
-            });
-        }
-    }
+        if (!typedElement) return;
 
-    // Scroll Animations with GSAP
-    initializeAnimations() {
-        if (typeof gsap !== 'undefined') {
-            gsap.registerPlugin(ScrollTrigger);
+        const texts = [
+            'Full Stack Developer',
+            'Computer Engineering Student',
+            'Data Science Enthusiast',
+            'Problem Solver',
+            'Tech Innovator'
+        ];
+
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        const typeText = () => {
+            const currentText = texts[textIndex];
             
-            // Hero animations
-            gsap.from('.hero-content > *', {
-                duration: 1,
-                y: 100,
-                opacity: 0,
-                stagger: 0.2,
-                ease: 'power3.out'
-            });
+            if (isDeleting) {
+                typedElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typedElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
 
-            gsap.from('.profile-frame', {
-                duration: 1.5,
-                scale: 0,
-                rotation: 180,
-                ease: 'back.out(1.7)',
-                delay: 0.5
-            });
+            let typeSpeed = isDeleting ? 50 : 100;
 
-            // Section animations
-            gsap.utils.toArray('section').forEach((section, index) => {
-                if (index > 0) {
-                    gsap.from(section.querySelector('.section-header'), {
-                        scrollTrigger: {
-                            trigger: section,
-                            start: 'top 80%'
-                        },
-                        duration: 1,
-                        y: 50,
-                        opacity: 0,
-                        ease: 'power3.out'
-                    });
-                }
-            });
+            if (!isDeleting && charIndex === currentText.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+                typeSpeed = 500;
+            }
 
-            // Project cards
-            gsap.utils.toArray('.project-card').forEach((card, index) => {
-                gsap.from(card, {
-                    scrollTrigger: {
-                        trigger: card,
-                        start: 'top 85%'
-                    },
-                    duration: 0.8,
-                    y: 100,
-                    opacity: 0,
-                    delay: index * 0.1,
-                    ease: 'power3.out'
-                });
-            });
+            setTimeout(typeText, typeSpeed);
+        };
 
-            // Timeline items
-            gsap.utils.toArray('.timeline-item').forEach((item, index) => {
-                gsap.from(item, {
-                    scrollTrigger: {
-                        trigger: item,
-                        start: 'top 85%'
-                    },
-                    duration: 0.8,
-                    x: -100,
-                    opacity: 0,
-                    delay: index * 0.2,
-                    ease: 'power3.out'
-                });
-            });
-        }
+        typeText();
     }
 
+    // Scroll Animations
     setupScrollAnimations() {
         const observerOptions = {
             threshold: 0.1,
@@ -198,14 +144,15 @@ class PortfolioWebsite {
                     entry.target.classList.add('animate');
                     
                     // Trigger specific animations
-                    if (entry.target.classList.contains('stats-section')) {
+                    if (entry.target.classList.contains('hero-stats')) {
                         this.animateCounters();
                     }
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.fade-in, .slide-in, .hero-stats').forEach(el => {
+        // Observe elements for animation
+        document.querySelectorAll('.fade-in, .slide-in, .hero-stats, .timeline-item, .project-card').forEach(el => {
             observer.observe(el);
         });
     }
@@ -252,117 +199,6 @@ class PortfolioWebsite {
                 top: 0,
                 behavior: 'smooth'
             });
-        });
-    }
-
-    // Cursor Follower
-    setupCursorFollower() {
-        if (window.innerWidth <= 768) return;
-
-        const cursor = document.getElementById('cursor');
-        if (!cursor) return;
-
-        let mouseX = 0;
-        let mouseY = 0;
-        let cursorX = 0;
-        let cursorY = 0;
-
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        });
-
-        const animateCursor = () => {
-            const speed = 0.15;
-            cursorX += (mouseX - cursorX) * speed;
-            cursorY += (mouseY - cursorY) * speed;
-            
-            cursor.style.left = cursorX - 10 + 'px';
-            cursor.style.top = cursorY - 10 + 'px';
-            
-            requestAnimationFrame(animateCursor);
-        };
-
-        animateCursor();
-
-        // Hover effects
-        document.querySelectorAll('a, button, .project-card, .blog-card').forEach(element => {
-            element.addEventListener('mouseenter', () => {
-                cursor.style.transform = 'scale(2)';
-                cursor.style.opacity = '0.5';
-            });
-            
-            element.addEventListener('mouseleave', () => {
-                cursor.style.transform = 'scale(1)';
-                cursor.style.opacity = '0.7';
-            });
-        });
-    }
-
-    // Form Handling
-    setupFormHandling() {
-        const contactForm = document.querySelector('.contact-form');
-        if (!contactForm) return;
-
-        // Floating label effect
-        const formInputs = contactForm.querySelectorAll('input, textarea');
-        formInputs.forEach(input => {
-            input.addEventListener('focus', () => {
-                input.parentElement.classList.add('focused');
-            });
-            
-            input.addEventListener('blur', () => {
-                if (input.value.trim() === '') {
-                    input.parentElement.classList.remove('focused');
-                }
-            });
-
-            // Check if input has value on load
-            if (input.value.trim() !== '') {
-                input.parentElement.classList.add('focused');
-            }
-        });
-    }
-
-    handleFormSubmission(e) {
-        e.preventDefault();
-        
-        const form = e.target;
-        const submitButton = form.querySelector('button[type="submit"]');
-        const originalText = submitButton.innerHTML;
-
-        // Show loading state
-        submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-        submitButton.disabled = true;
-
-        // Simulate form submission
-        const formData = new FormData(form);
-        
-        // Use Formspree or your preferred form service
-        fetch(form.action, {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
-            }
-        })
-        .then(response => {
-            if (response.ok) {
-                this.showNotification('Message sent successfully!', 'success');
-                form.reset();
-                document.querySelectorAll('.form-group').forEach(group => {
-                    group.classList.remove('focused');
-                });
-            } else {
-                throw new Error('Form submission failed');
-            }
-        })
-        .catch(error => {
-            this.showNotification('Failed to send message. Please try again.', 'error');
-        })
-        .finally(() => {
-            submitButton.innerHTML = originalText;
-            submitButton.disabled = false;
         });
     }
 
@@ -489,30 +325,6 @@ class PortfolioWebsite {
     }
 
     // Utility Functions
-    showNotification(message, type = 'info') {
-        const notification = document.getElementById('notification');
-        const icon = notification.querySelector('.notification-icon');
-        const messageEl = notification.querySelector('.notification-message');
-
-        // Set icon based on type
-        const icons = {
-            success: 'fas fa-check-circle',
-            error: 'fas fa-exclamation-circle',
-            info: 'fas fa-info-circle'
-        };
-
-        icon.className = icons[type] || icons.info;
-        messageEl.textContent = message;
-
-        // Show notification
-        notification.classList.add('show');
-
-        // Hide after 3 seconds
-        setTimeout(() => {
-            notification.classList.remove('show');
-        }, 3000);
-    }
-
     preloadImages() {
         const images = [
             './pic.jpeg',
@@ -555,24 +367,6 @@ class PortfolioWebsite {
 document.addEventListener('DOMContentLoaded', () => {
     new PortfolioWebsite();
 });
-
-// PWA Support
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js')
-            .then(registration => {
-                console.log('SW registered: ', registration);
-            })
-            .catch(registrationError => {
-                console.log('SW registration failed: ', registrationError);
-            });
-    });
-}
-
-// Analytics
-if (typeof gtag !== 'undefined') {
-    gtag('config', 'GA_MEASUREMENT_ID');
-}
 
 // Error handling
 window.addEventListener('error', (e) => {

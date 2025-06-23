@@ -23,8 +23,7 @@
     <meta property="twitter:image" content="./pic.jpeg">
     
     <title>Aakash Jawle | Computer Engineering Student & Developer</title>
-    <link rel="icon" type="image/x-icon" href="./favicon.ico">
-    <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,11 +35,6 @@
     
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
-    
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
-    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js" defer></script>
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -58,9 +52,6 @@
         ]
     }
     </script>
-    
-    <!-- Analytics -->
-    <script defer data-domain="aakash-jawle.github.io" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
     <!-- Loading Screen -->
@@ -68,7 +59,7 @@
         <div class="terminal-loader">
             <div class="terminal-text">
                 <span class="prompt">user@portfolio:~$</span>
-                <span class="command" id="loadingCommand"></span>
+                <span class="command" id="loadingCommand">initializing...</span>
                 <span class="cursor-blink">_</span>
             </div>
             <div class="loading-bar">
@@ -86,23 +77,20 @@
             </div>
             
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link" data-section="home">
+                <li><a href="#home" class="nav-link">
                     <span class="nav-number">01.</span> home
                 </a></li>
-                <li><a href="#about" class="nav-link" data-section="about">
+                <li><a href="#about" class="nav-link">
                     <span class="nav-number">02.</span> about
                 </a></li>
-                <li><a href="#experience" class="nav-link" data-section="experience">
+                <li><a href="#experience" class="nav-link">
                     <span class="nav-number">03.</span> experience
                 </a></li>
-                <li><a href="#projects" class="nav-link" data-section="projects">
+                <li><a href="#projects" class="nav-link">
                     <span class="nav-number">04.</span> projects
                 </a></li>
-                <li><a href="#blog" class="nav-link" data-section="blog">
-                    <span class="nav-number">05.</span> blog
-                </a></li>
-                <li><a href="#contact" class="nav-link" data-section="contact">
-                    <span class="nav-number">06.</span> contact
+                <li><a href="#contact" class="nav-link">
+                    <span class="nav-number">05.</span> contact
                 </a></li>
             </ul>
             
@@ -110,10 +98,6 @@
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
                     <i class="fas fa-sun"></i>
                 </button>
-                <a href="./resume.pdf" class="resume-btn" download aria-label="Download Resume">
-                    <i class="fas fa-download"></i>
-                    <span>Resume</span>
-                </a>
             </div>
             
             <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -128,7 +112,6 @@
     <section id="home" class="hero">
         <div class="hero-background">
             <div class="matrix-rain"></div>
-            <div class="glitch-overlay"></div>
         </div>
         
         <div class="container">
@@ -177,10 +160,6 @@
                     <a href="#contact" class="btn btn-secondary">
                         <span>Contact Me</span>
                         <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="./resume.pdf" class="btn btn-outline" download>
-                        <span>Download Resume</span>
-                        <i class="fas fa-download"></i>
                     </a>
                 </div>
                 
@@ -381,7 +360,7 @@
             
             <div class="projects-grid">
                 <!-- Cotton Disease Detection -->
-                <div class="project-card" data-aos="fade-up">
+                <div class="project-card">
                     <div class="project-image">
                         <img src="./cotton.jpeg" alt="Cotton Disease Detection System" loading="lazy">
                         <div class="project-overlay">
@@ -416,7 +395,7 @@
                 </div>
 
                 <!-- Finance Tracker -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="project-card">
                     <div class="project-image">
                         <img src="./finance.webp" alt="Personal Finance Tracker" loading="lazy">
                         <div class="project-overlay">
@@ -451,7 +430,7 @@
                 </div>
 
                 <!-- Fuel Price Prediction -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="project-card">
                     <div class="project-image">
                         <img src="./fuel.jpeg" alt="Fuel Price Prediction System" loading="lazy">
                         <div class="project-overlay">
@@ -486,7 +465,7 @@
                 </div>
 
                 <!-- Task Manager -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="project-card">
                     <div class="project-image">
                         <img src="./taskmanager.webp" alt="Collaborative Task Manager" loading="lazy">
                         <div class="project-overlay">
@@ -530,97 +509,11 @@
         </div>
     </section>
 
-    <!-- Blog Section -->
-    <section id="blog" class="blog">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">04.</span>
-                <h2 class="section-title">blog/</h2>
-                <div class="section-line"></div>
-            </div>
-            
-            <div class="blog-grid">
-                <article class="blog-card" data-aos="fade-up">
-                    <div class="blog-meta">
-                        <span class="blog-date">Dec 15, 2024</span>
-                        <span class="blog-category">Web Development</span>
-                    </div>
-                    <h3 class="blog-title">
-                        <a href="./blog/modern-web-development-trends.html">Modern Web Development Trends in 2024</a>
-                    </h3>
-                    <p class="blog-excerpt">
-                        Exploring the latest trends in web development including AI integration, 
-                        serverless architecture, and the rise of micro-frontends...
-                    </p>
-                    <div class="blog-tags">
-                        <span class="tag">React</span>
-                        <span class="tag">AI</span>
-                        <span class="tag">Trends</span>
-                    </div>
-                    <a href="./blog/modern-web-development-trends.html" class="blog-link">
-                        Read More <i class="fas fa-arrow-right"></i>
-                    </a>
-                </article>
-                
-                <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="blog-meta">
-                        <span class="blog-date">Nov 28, 2024</span>
-                        <span class="blog-category">Data Science</span>
-                    </div>
-                    <h3 class="blog-title">
-                        <a href="./blog/machine-learning-beginners.html">Getting Started with Machine Learning</a>
-                    </h3>
-                    <p class="blog-excerpt">
-                        A comprehensive guide for beginners looking to dive into machine learning, 
-                        covering essential concepts and practical implementations...
-                    </p>
-                    <div class="blog-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">ML</span>
-                        <span class="tag">Tutorial</span>
-                    </div>
-                    <a href="./blog/machine-learning-beginners.html" class="blog-link">
-                        Read More <i class="fas fa-arrow-right"></i>
-                    </a>
-                </article>
-                
-                <article class="blog-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="blog-meta">
-                        <span class="blog-date">Nov 10, 2024</span>
-                        <span class="blog-category">Career</span>
-                    </div>
-                    <h3 class="blog-title">
-                        <a href="./blog/student-developer-journey.html">My Journey as a Student Developer</a>
-                    </h3>
-                    <p class="blog-excerpt">
-                        Sharing my experiences, challenges, and learnings as a computer engineering 
-                        student pursuing a career in software development...
-                    </p>
-                    <div class="blog-tags">
-                        <span class="tag">Career</span>
-                        <span class="tag">Tips</span>
-                        <span class="tag">Personal</span>
-                    </div>
-                    <a href="./blog/student-developer-journey.html" class="blog-link">
-                        Read More <i class="fas fa-arrow-right"></i>
-                    </a>
-                </article>
-            </div>
-            
-            <div class="blog-footer">
-                <a href="./blog/" class="btn btn-outline">
-                    <span>View All Posts</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
-                <span class="section-number">05.</span>
+                <span class="section-number">04.</span>
                 <h2 class="section-title">contact.me</h2>
                 <div class="section-line"></div>
             </div>
@@ -663,46 +556,37 @@
                                     <i class="fas fa-map-marker-alt"></i>
                                     <span>India</span>
                                 </div>
+                                <div class="contact-method">
+                                    <i class="fab fa-github"></i>
+                                    <a href="https://github.com/Aakash-Jawle" target="_blank">github.com/Aakash-Jawle</a>
+                                </div>
+                                <div class="contact-method">
+                                    <i class="fab fa-linkedin"></i>
+                                    <a href="https://linkedin.com/in/aakash-jawle" target="_blank">linkedin.com/in/aakash-jawle</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
-                    <div class="form-header">
-                        <h3>Send Message</h3>
-                        <div class="form-line"></div>
+                <div class="contact-cta">
+                    <h3>Let's Build Something Amazing Together!</h3>
+                    <p>Whether you have a project in mind, want to collaborate, or just say hello, I'd love to hear from you.</p>
+                    <div class="cta-buttons">
+                        <a href="mailto:aakash.jawle@email.com" class="btn btn-primary">
+                            <span>Send Email</span>
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://github.com/Aakash-Jawle" class="btn btn-secondary" target="_blank">
+                            <span>GitHub</span>
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/aakash-jawle" class="btn btn-outline" target="_blank">
+                            <span>LinkedIn</span>
+                            <i class="fab fa-linkedin"></i>
+                        </a>
                     </div>
-                    
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" required>
-                        <label for="name">Name</label>
-                        <div class="form-highlight"></div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" required>
-                        <label for="email">Email</label>
-                        <div class="form-highlight"></div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="text" id="subject" name="subject" required>
-                        <label for="subject">Subject</label>
-                        <div class="form-highlight"></div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                        <label for="message">Message</label>
-                        <div class="form-highlight"></div>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary" id="submitBtn">
-                        <span>Send Message</span>
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </form>
+                </div>
             </div>
         </div>
     </section>
@@ -712,13 +596,13 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-left">
-                    <p>&copy; 2024 Aakash Jawle. Built with <span class="heart">♥</span> and lots of coffee.</p>
+                    <p>&copy; 2025 Aakash Jawle. Built with <span class="heart">♥</span> and lots of coffee.</p>
                 </div>
                 <div class="footer-right">
                     <div class="footer-links">
-                        <a href="./privacy.html" class="footer-link">Privacy</a>
-                        <a href="./terms.html" class="footer-link">Terms</a>
-                        <a href="./sitemap.xml" class="footer-link">Sitemap</a>
+                        <a href="https://github.com/Aakash-Jawle" class="footer-link" target="_blank">GitHub</a>
+                        <a href="https://linkedin.com/in/aakash-jawle" class="footer-link" target="_blank">LinkedIn</a>
+                        <a href="mailto:aakash.jawle@email.com" class="footer-link">Email</a>
                     </div>
                 </div>
             </div>
@@ -729,17 +613,6 @@
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
         <i class="fas fa-chevron-up"></i>
     </button>
-
-    <!-- Cursor Follower -->
-    <div class="cursor-follower" id="cursor"></div>
-
-    <!-- Notification -->
-    <div class="notification" id="notification">
-        <div class="notification-content">
-            <i class="notification-icon"></i>
-            <span class="notification-message"></span>
-        </div>
-    </div>
 
     <!-- Scripts -->
     <script src="scripts.js"></script>
