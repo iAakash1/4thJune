@@ -3,97 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aakash Jawle | Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <meta name="description" content="Aakash Jawle - Computer Engineering Student, Full Stack Developer, and Data Science Enthusiast. Explore my projects and get in touch!">
+    <meta name="keywords" content="Aakash Jawle, Computer Engineering, Full Stack Developer, Data Science, Web Development, Portfolio">
+    <meta name="author" content="Aakash Jawle">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aakash-jawle.github.io/">
+    <meta property="og:title" content="Aakash Jawle | Computer Engineering Student & Developer">
+    <meta property="og:description" content="Passionate about creating innovative web solutions, exploring data science, and building software that makes a difference.">
+    <meta property="og:image" content="./pic.jpeg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://aakash-jawle.github.io/">
+    <meta property="twitter:title" content="Aakash Jawle | Computer Engineering Student & Developer">
+    <meta property="twitter:description" content="Passionate about creating innovative web solutions, exploring data science, and building software that makes a difference.">
+    <meta property="twitter:image" content="./pic.jpeg">
+    
+    <title>Aakash Jawle | Computer Engineering Student & Developer</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
-    <script src="scripts.js" defer></script>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js" defer></script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Aakash Jawle",
+        "jobTitle": "Computer Engineering Student",
+        "description": "Full Stack Developer and Data Science Enthusiast",
+        "url": "https://aakash-jawle.github.io/",
+        "image": "./pic.jpeg",
+        "sameAs": [
+            "https://github.com/Aakash-Jawle",
+            "https://linkedin.com/in/aakash-jawle"
+        ]
+    }
+    </script>
+    
+    <!-- Analytics -->
+    <script defer data-domain="aakash-jawle.github.io" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="terminal-loader">
+            <div class="terminal-text">
+                <span class="prompt">user@portfolio:~$</span>
+                <span class="command" id="loadingCommand"></span>
+                <span class="cursor-blink">_</span>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <span class="logo-text">AJ</span>
+                <span class="terminal-prompt">~/</span>
+                <span class="logo-text">aakash-jawle</span>
             </div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link" data-section="home">
+                    <span class="nav-number">01.</span> home
+                </a></li>
+                <li><a href="#about" class="nav-link" data-section="about">
+                    <span class="nav-number">02.</span> about
+                </a></li>
+                <li><a href="#experience" class="nav-link" data-section="experience">
+                    <span class="nav-number">03.</span> experience
+                </a></li>
+                <li><a href="#projects" class="nav-link" data-section="projects">
+                    <span class="nav-number">04.</span> projects
+                </a></li>
+                <li><a href="#blog" class="nav-link" data-section="blog">
+                    <span class="nav-number">05.</span> blog
+                </a></li>
+                <li><a href="#contact" class="nav-link" data-section="contact">
+                    <span class="nav-number">06.</span> contact
+                </a></li>
             </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <a href="./resume.pdf" class="resume-btn" download aria-label="Download Resume">
+                    <i class="fas fa-download"></i>
+                    <span>Resume</span>
+                </a>
             </div>
+            
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-container">
+        <div class="hero-background">
+            <div class="matrix-rain"></div>
+            <div class="glitch-overlay"></div>
+        </div>
+        
+        <div class="container">
             <div class="hero-content">
-                <div class="hero-greeting">
-                    <span class="greeting-text">Hello, I'm</span>
+                <div class="hero-intro">
+                    <span class="glitch-text" data-text="Hello, I'm">Hello, I'm</span>
                 </div>
+                
                 <h1 class="hero-name">
-                    <span class="name-text">Aakash Jawle</span>
+                    <span class="name-highlight">Aakash</span>
+                    <span class="name-normal">Jawle</span>
                 </h1>
+                
                 <div class="hero-title">
-                    <span class="typing-text"></span>
-                    <span class="cursor">|</span>
+                    <span class="terminal-prompt">$</span>
+                    <span id="typed-text"></span>
                 </div>
+                
                 <p class="hero-description">
-                    Computer Engineering student passionate about creating innovative web solutions, 
-                    exploring data science, and building software that makes a difference.
+                    I'm a Computer Engineering student passionate about creating innovative 
+                    <span class="highlight-text">web solutions</span>, exploring 
+                    <span class="highlight-text">data science</span>, and building software 
+                    that makes a difference.
                 </p>
-                <div class="hero-buttons">
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="25">0</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="3">0</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="15">0</span>
+                        <span class="stat-label">Technologies</span>
+                    </div>
+                </div>
+                
+                <div class="hero-actions">
                     <a href="#projects" class="btn btn-primary">
-                        <span>View My Work</span>
+                        <span>View Projects</span>
                         <i class="fas fa-arrow-right"></i>
                     </a>
                     <a href="#contact" class="btn btn-secondary">
-                        <span>Let's Connect</span>
-                        <i class="fas fa-paper-plane"></i>
+                        <span>Contact Me</span>
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="./resume.pdf" class="btn btn-outline" download>
+                        <span>Download Resume</span>
+                        <i class="fas fa-download"></i>
                     </a>
                 </div>
+                
                 <div class="social-links">
-                    <a href="#" class="social-link" aria-label="GitHub">
+                    <a href="https://github.com/Aakash-Jawle" class="social-link" target="_blank" rel="noopener" aria-label="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="#" class="social-link" aria-label="LinkedIn">
+                    <a href="https://linkedin.com/in/aakash-jawle" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="#" class="social-link" aria-label="Twitter">
+                    <a href="https://twitter.com/aakash_jawle" class="social-link" target="_blank" rel="noopener" aria-label="Twitter">
                         <i class="fab fa-twitter"></i>
                     </a>
-                    <a href="#" class="social-link" aria-label="Email">
+                    <a href="mailto:aakash.jawle@email.com" class="social-link" aria-label="Email">
                         <i class="fas fa-envelope"></i>
                     </a>
                 </div>
             </div>
+            
             <div class="hero-visual">
-                <div class="floating-shapes">
-                    <div class="shape shape-1"></div>
-                    <div class="shape shape-2"></div>
-                    <div class="shape shape-3"></div>
-                    <div class="shape shape-4"></div>
+                <div class="profile-container">
+                    <div class="profile-frame">
+                        <img src="./pic.jpeg" alt="Aakash Jawle - Computer Engineering Student" class="profile-image">
+                        <div class="profile-glow"></div>
+                    </div>
                 </div>
-                <div class="hero-image">
-                    <div class="image-placeholder">
-                        <i class="fas fa-user"></i>
+                <div class="floating-elements">
+                    <div class="code-snippet">
+                        <span class="code-line">const developer = {</span>
+                        <span class="code-line">  name: 'Aakash Jawle',</span>
+                        <span class="code-line">  skills: ['React', 'Python', 'Node.js'],</span>
+                        <span class="code-line">  passion: 'Building amazing things'</span>
+                        <span class="code-line">};</span>
                     </div>
                 </div>
             </div>
         </div>
+        
         <div class="scroll-indicator">
-            <div class="scroll-arrow">
-                <i class="fas fa-chevron-down"></i>
-            </div>
+            <div class="scroll-text">scroll down</div>
+            <div class="scroll-line"></div>
         </div>
     </section>
 
@@ -101,49 +229,141 @@
     <section id="about" class="about">
         <div class="container">
             <div class="section-header">
-                <span class="section-number">01</span>
-                <h2 class="section-title">About Me</h2>
+                <span class="section-number">01.</span>
+                <h2 class="section-title">about_me.md</h2>
                 <div class="section-line"></div>
             </div>
+            
             <div class="about-content">
                 <div class="about-text">
-                    <p class="about-intro">
-                        I'm a passionate Computer Engineering student with a deep love for technology 
-                        and innovation. My journey in tech started with curiosity and has evolved into 
-                        a commitment to creating meaningful digital experiences.
-                    </p>
-                    <p>
-                        Currently pursuing my degree while actively working on projects that span 
-                        web development, data science, and software engineering. I believe in 
-                        continuous learning and staying updated with the latest technologies.
-                    </p>
-                    <div class="about-highlights">
-                        <div class="highlight">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span>Computer Engineering Student</span>
+                    <div class="terminal-window">
+                        <div class="terminal-header">
+                            <div class="terminal-controls">
+                                <span class="control close"></span>
+                                <span class="control minimize"></span>
+                                <span class="control maximize"></span>
+                            </div>
+                            <span class="terminal-title">about.txt</span>
                         </div>
-                        <div class="highlight">
-                            <i class="fas fa-code"></i>
-                            <span>Full-Stack Developer</span>
-                        </div>
-                        <div class="highlight">
-                            <i class="fas fa-chart-line"></i>
-                            <span>Data Science Enthusiast</span>
+                        <div class="terminal-body">
+                            <p class="about-intro">
+                                <span class="terminal-prompt">></span> 
+                                I'm a passionate Computer Engineering student with a deep love for 
+                                technology and innovation. My journey in tech started with curiosity 
+                                and has evolved into a commitment to creating meaningful digital experiences.
+                            </p>
+                            <p>
+                                <span class="terminal-prompt">></span>
+                                Currently pursuing my degree while actively working on projects that span 
+                                web development, data science, and software engineering. I believe in 
+                                continuous learning and staying updated with the latest technologies.
+                            </p>
+                            <p>
+                                <span class="terminal-prompt">></span>
+                                When I'm not coding, you can find me exploring new technologies, 
+                                contributing to open source projects, or learning about the latest 
+                                developments in AI and machine learning.
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="about-stats">
-                    <div class="stat">
-                        <div class="stat-number" data-count="20">0</div>
-                        <div class="stat-label">Projects Completed</div>
+                
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3><i class="fas fa-code"></i> Frontend</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag"><i class="fab fa-html5"></i> HTML5</span>
+                            <span class="skill-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
+                            <span class="skill-tag"><i class="fab fa-js-square"></i> JavaScript</span>
+                            <span class="skill-tag"><i class="fab fa-react"></i> React</span>
+                            <span class="skill-tag"><i class="fab fa-vue"></i> Vue.js</span>
+                            <span class="skill-tag"><i class="fab fa-sass"></i> Sass</span>
+                        </div>
                     </div>
-                    <div class="stat">
-                        <div class="stat-number" data-count="15">0</div>
-                        <div class="stat-label">Technologies Learned</div>
+                    
+                    <div class="skill-category">
+                        <h3><i class="fas fa-server"></i> Backend</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag"><i class="fab fa-node-js"></i> Node.js</span>
+                            <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
+                            <span class="skill-tag"><i class="fas fa-database"></i> MongoDB</span>
+                            <span class="skill-tag"><i class="fas fa-database"></i> PostgreSQL</span>
+                            <span class="skill-tag"><i class="fas fa-fire"></i> Firebase</span>
+                            <span class="skill-tag"><i class="fab fa-docker"></i> Docker</span>
+                        </div>
                     </div>
-                    <div class="stat">
-                        <div class="stat-number" data-count="100">0</div>
-                        <div class="stat-label">Hours of Coding</div>
+                    
+                    <div class="skill-category">
+                        <h3><i class="fas fa-tools"></i> Tools & Others</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag"><i class="fab fa-git-alt"></i> Git</span>
+                            <span class="skill-tag"><i class="fab fa-aws"></i> AWS</span>
+                            <span class="skill-tag"><i class="fas fa-brain"></i> TensorFlow</span>
+                            <span class="skill-tag"><i class="fas fa-chart-line"></i> Pandas</span>
+                            <span class="skill-tag"><i class="fab fa-figma"></i> Figma</span>
+                            <span class="skill-tag"><i class="fab fa-linux"></i> Linux</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">02.</span>
+                <h2 class="section-title">experience.log</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item" data-date="2023 - Present">
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Computer Engineering Student</h3>
+                            <span class="company">University</span>
+                        </div>
+                        <p>Pursuing Bachelor's degree in Computer Engineering with focus on software development, data structures, algorithms, and emerging technologies.</p>
+                        <div class="timeline-skills">
+                            <span class="skill-pill">Data Structures</span>
+                            <span class="skill-pill">Algorithms</span>
+                            <span class="skill-pill">Software Engineering</span>
+                            <span class="skill-pill">Database Systems</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-date="2023">
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Full Stack Development Intern</h3>
+                            <span class="company">Tech Startup</span>
+                        </div>
+                        <p>Developed responsive web applications using React and Node.js. Implemented RESTful APIs and worked with MongoDB databases.</p>
+                        <div class="timeline-skills">
+                            <span class="skill-pill">React</span>
+                            <span class="skill-pill">Node.js</span>
+                            <span class="skill-pill">MongoDB</span>
+                            <span class="skill-pill">REST APIs</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-date="2022">
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Freelance Web Developer</h3>
+                            <span class="company">Various Clients</span>
+                        </div>
+                        <p>Created custom websites for small businesses and individuals. Specialized in responsive design and modern web technologies.</p>
+                        <div class="timeline-skills">
+                            <span class="skill-pill">HTML/CSS</span>
+                            <span class="skill-pill">JavaScript</span>
+                            <span class="skill-pill">WordPress</span>
+                            <span class="skill-pill">UI/UX Design</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -154,199 +374,244 @@
     <section id="projects" class="projects">
         <div class="container">
             <div class="section-header">
-                <span class="section-number">02</span>
-                <h2 class="section-title">Featured Projects</h2>
+                <span class="section-number">03.</span>
+                <h2 class="section-title">projects/</h2>
                 <div class="section-line"></div>
             </div>
+            
             <div class="projects-grid">
-                <div class="project-card" data-project="1">
+                <!-- Cotton Disease Detection -->
+                <div class="project-card" data-aos="fade-up">
                     <div class="project-image">
+                        <img src="./cotton.jpeg" alt="Cotton Disease Detection System" loading="lazy">
                         <div class="project-overlay">
                             <div class="project-links">
-                                <a href="#" class="project-link">
+                                <a href="#" class="project-link" target="_blank" rel="noopener" aria-label="View live demo">
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>
-                                <a href="#" class="project-link">
+                                <a href="https://github.com/Aakash-Jawle/cotton-disease-detection" class="project-link" target="_blank" rel="noopener" aria-label="View source code">
                                     <i class="fab fa-github"></i>
                                 </a>
                             </div>
                         </div>
-                        <img src="https://via.placeholder.com/400x250/667eea/ffffff?text=Project+1" alt="Project 1">
                     </div>
                     <div class="project-content">
+                        <div class="project-header">
+                            <h3>Cotton Disease Detection</h3>
+                            <div class="project-status">
+                                <span class="status-live">Live</span>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            AI-powered system for detecting diseases in cotton plants using computer vision and machine learning. 
+                            Achieved 95% accuracy in disease identification.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">OpenCV</span>
+                            <span class="tech-tag">Flask</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Finance Tracker -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image">
+                        <img src="./finance.webp" alt="Personal Finance Tracker" loading="lazy">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" target="_blank" rel="noopener" aria-label="View live demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/Aakash-Jawle/finance-tracker" class="project-link" target="_blank" rel="noopener" aria-label="View source code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Personal Finance Tracker</h3>
+                            <div class="project-status">
+                                <span class="status-live">Live</span>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Full-stack web application for tracking personal finances with interactive charts, 
+                            budget planning, and expense categorization features.
+                        </p>
                         <div class="project-tech">
                             <span class="tech-tag">React</span>
                             <span class="tech-tag">Node.js</span>
                             <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Chart.js</span>
                         </div>
-                        <h3 class="project-title">E-Commerce Platform</h3>
-                        <p class="project-description">
-                            A full-stack e-commerce solution with modern UI/UX, 
-                            secure payment integration, and real-time inventory management.
-                        </p>
                     </div>
                 </div>
 
-                <div class="project-card" data-project="2">
+                <!-- Fuel Price Prediction -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-image">
+                        <img src="./fuel.jpeg" alt="Fuel Price Prediction System" loading="lazy">
                         <div class="project-overlay">
                             <div class="project-links">
-                                <a href="#" class="project-link">
+                                <a href="#" class="project-link" target="_blank" rel="noopener" aria-label="View live demo">
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>
-                                <a href="#" class="project-link">
+                                <a href="https://github.com/Aakash-Jawle/fuel-price-prediction" class="project-link" target="_blank" rel="noopener" aria-label="View source code">
                                     <i class="fab fa-github"></i>
                                 </a>
                             </div>
                         </div>
-                        <img src="https://via.placeholder.com/400x250/f093fb/ffffff?text=Project+2" alt="Project 2">
                     </div>
                     <div class="project-content">
+                        <div class="project-header">
+                            <h3>Fuel Price Prediction</h3>
+                            <div class="project-status">
+                                <span class="status-development">In Development</span>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Machine learning model for predicting fuel prices using historical data and market indicators. 
+                            Implements time series analysis and regression techniques.
+                        </p>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
-                            <span class="tech-tag">TensorFlow</span>
-                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Matplotlib</span>
                         </div>
-                        <h3 class="project-title">AI Image Classifier</h3>
-                        <p class="project-description">
-                            Machine learning model for image classification with 95% accuracy, 
-                            deployed with a user-friendly web interface.
-                        </p>
                     </div>
                 </div>
 
-                <div class="project-card" data-project="3">
+                <!-- Task Manager -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="project-image">
+                        <img src="./taskmanager.webp" alt="Collaborative Task Manager" loading="lazy">
                         <div class="project-overlay">
                             <div class="project-links">
-                                <a href="#" class="project-link">
+                                <a href="#" class="project-link" target="_blank" rel="noopener" aria-label="View live demo">
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>
-                                <a href="#" class="project-link">
+                                <a href="https://github.com/Aakash-Jawle/task-manager" class="project-link" target="_blank" rel="noopener" aria-label="View source code">
                                     <i class="fab fa-github"></i>
                                 </a>
                             </div>
                         </div>
-                        <img src="https://via.placeholder.com/400x250/4facfe/ffffff?text=Project+3" alt="Project 3">
                     </div>
                     <div class="project-content">
+                        <div class="project-header">
+                            <h3>Collaborative Task Manager</h3>
+                            <div class="project-status">
+                                <span class="status-live">Live</span>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Real-time collaborative task management platform with team features, 
+                            deadline tracking, and progress analytics for improved productivity.
+                        </p>
                         <div class="project-tech">
                             <span class="tech-tag">Vue.js</span>
                             <span class="tech-tag">Express</span>
                             <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Socket.io</span>
                         </div>
-                        <h3 class="project-title">Task Management App</h3>
-                        <p class="project-description">
-                            Collaborative task management platform with real-time updates, 
-                            team collaboration features, and advanced analytics.
-                        </p>
                     </div>
                 </div>
+            </div>
+            
+            <div class="projects-footer">
+                <a href="https://github.com/Aakash-Jawle" class="btn btn-outline" target="_blank" rel="noopener">
+                    <span>View All Projects</span>
+                    <i class="fab fa-github"></i>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
+    <!-- Blog Section -->
+    <section id="blog" class="blog">
         <div class="container">
             <div class="section-header">
-                <span class="section-number">03</span>
-                <h2 class="section-title">Skills & Technologies</h2>
+                <span class="section-number">04.</span>
+                <h2 class="section-title">blog/</h2>
                 <div class="section-line"></div>
             </div>
-            <div class="skills-content">
-                <div class="skills-category">
-                    <h3 class="category-title">Frontend</h3>
-                    <div class="skills-list">
-                        <div class="skill-item">
-                            <i class="fab fa-html5"></i>
-                            <span>HTML5</span>
-                            <div class="skill-level" data-level="90"></div>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-css3-alt"></i>
-                            <span>CSS3</span>
-                            <div class="skill-level" data-level="85"></div>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-js-square"></i>
-                            <span>JavaScript</span>
-                            <div class="skill-level" data-level="80"></div>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-react"></i>
-                            <span>React</span>
-                            <div class="skill-level" data-level="75"></div>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-vuejs"></i>
-                            <span>Vue.js</span>
-                            <div class="skill-level" data-level="70"></div>
-                        </div>
+            
+            <div class="blog-grid">
+                <article class="blog-card" data-aos="fade-up">
+                    <div class="blog-meta">
+                        <span class="blog-date">Dec 15, 2024</span>
+                        <span class="blog-category">Web Development</span>
                     </div>
-                </div>
-
-                <div class="skills-category">
-                    <h3 class="category-title">Backend</h3>
-                    <div class="skills-list">
-                        <div class="skill-item">
-                            <i class="fab fa-python"></i>
-                            <span>Python</span>
-                            <div class="skill-level" data-level="85"></div>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-node-js"></i>
-                            <span>Node.js</span>
-                            <div class="skill-level" data-level="75"></div>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-database"></i>
-                            <span>MongoDB</span>
-                            <div class="skill-level" data-level="70"></div>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-server"></i>
-                            <span>Express.js</span>
-                            <div class="skill-level" data-level="75"></div>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-database"></i>
-                            <span>PostgreSQL</span>
-                            <div class="skill-level" data-level="65"></div>
-                        </div>
+                    <h3 class="blog-title">
+                        <a href="./blog/modern-web-development-trends.html">Modern Web Development Trends in 2024</a>
+                    </h3>
+                    <p class="blog-excerpt">
+                        Exploring the latest trends in web development including AI integration, 
+                        serverless architecture, and the rise of micro-frontends...
+                    </p>
+                    <div class="blog-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">AI</span>
+                        <span class="tag">Trends</span>
                     </div>
-                </div>
-
-                <div class="skills-category">
-                    <h3 class="category-title">Tools & Others</h3>
-                    <div class="skills-list">
-                        <div class="skill-item">
-                            <i class="fab fa-git-alt"></i>
-                            <span>Git</span>
-                            <div class="skill-level" data-level="80"></div>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-docker"></i>
-                            <span>Docker</span>
-                            <div class="skill-level" data-level="60"></div>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-aws"></i>
-                            <span>AWS</span>
-                            <div class="skill-level" data-level="55"></div>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-brain"></i>
-                            <span>Machine Learning</span>
-                            <div class="skill-level" data-level="70"></div>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-mobile-alt"></i>
-                            <span>Responsive Design</span>
-                            <div class="skill-level" data-level="90"></div>
-                        </div>
+                    <a href="./blog/modern-web-development-trends.html" class="blog-link">
+                        Read More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </article>
+                
+                <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="blog-meta">
+                        <span class="blog-date">Nov 28, 2024</span>
+                        <span class="blog-category">Data Science</span>
                     </div>
-                </div>
+                    <h3 class="blog-title">
+                        <a href="./blog/machine-learning-beginners.html">Getting Started with Machine Learning</a>
+                    </h3>
+                    <p class="blog-excerpt">
+                        A comprehensive guide for beginners looking to dive into machine learning, 
+                        covering essential concepts and practical implementations...
+                    </p>
+                    <div class="blog-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">ML</span>
+                        <span class="tag">Tutorial</span>
+                    </div>
+                    <a href="./blog/machine-learning-beginners.html" class="blog-link">
+                        Read More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </article>
+                
+                <article class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="blog-meta">
+                        <span class="blog-date">Nov 10, 2024</span>
+                        <span class="blog-category">Career</span>
+                    </div>
+                    <h3 class="blog-title">
+                        <a href="./blog/student-developer-journey.html">My Journey as a Student Developer</a>
+                    </h3>
+                    <p class="blog-excerpt">
+                        Sharing my experiences, challenges, and learnings as a computer engineering 
+                        student pursuing a career in software development...
+                    </p>
+                    <div class="blog-tags">
+                        <span class="tag">Career</span>
+                        <span class="tag">Tips</span>
+                        <span class="tag">Personal</span>
+                    </div>
+                    <a href="./blog/student-developer-journey.html" class="blog-link">
+                        Read More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </article>
+            </div>
+            
+            <div class="blog-footer">
+                <a href="./blog/" class="btn btn-outline">
+                    <span>View All Posts</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -355,50 +620,85 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
-                <span class="section-number">04</span>
-                <h2 class="section-title">Get In Touch</h2>
+                <span class="section-number">05.</span>
+                <h2 class="section-title">contact.me</h2>
                 <div class="section-line"></div>
             </div>
+            
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>Let's work together!</h3>
-                    <p>
-                        I'm always interested in new opportunities and exciting projects. 
-                        Whether you have a question or just want to say hi, feel free to reach out!
-                    </p>
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <i class="fas fa-envelope"></i>
-                            <span>aakash.jawle@email.com</span>
+                    <div class="terminal-window">
+                        <div class="terminal-header">
+                            <div class="terminal-controls">
+                                <span class="control close"></span>
+                                <span class="control minimize"></span>
+                                <span class="control maximize"></span>
+                            </div>
+                            <span class="terminal-title">contact-info.sh</span>
                         </div>
-                        <div class="contact-method">
-                            <i class="fas fa-phone"></i>
-                            <span>+91 12345 67890</span>
-                        </div>
-                        <div class="contact-method">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>India</span>
+                        <div class="terminal-body">
+                            <div class="terminal-line">
+                                <span class="prompt">$</span> whoami
+                            </div>
+                            <div class="terminal-output">aakash-jawle</div>
+                            
+                            <div class="terminal-line">
+                                <span class="prompt">$</span> cat contact.txt
+                            </div>
+                            <div class="terminal-output">
+                                <p>Ready to work together? Let's connect!</p>
+                                <p>I'm always interested in new opportunities and exciting projects.</p>
+                            </div>
+                            
+                            <div class="contact-methods">
+                                <div class="contact-method">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>aakash.jawle@email.com</span>
+                                </div>
+                                <div class="contact-method">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+91 12345 67890</span>
+                                </div>
+                                <div class="contact-method">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>India</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <input type="text" id="name" required>
-                        <label for="name">Your Name</label>
+                
+                <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+                    <div class="form-header">
+                        <h3>Send Message</h3>
+                        <div class="form-line"></div>
                     </div>
+                    
                     <div class="form-group">
-                        <input type="email" id="email" required>
-                        <label for="email">Your Email</label>
+                        <input type="text" id="name" name="name" required>
+                        <label for="name">Name</label>
+                        <div class="form-highlight"></div>
                     </div>
+                    
                     <div class="form-group">
-                        <input type="text" id="subject" required>
+                        <input type="email" id="email" name="email" required>
+                        <label for="email">Email</label>
+                        <div class="form-highlight"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" required>
                         <label for="subject">Subject</label>
+                        <div class="form-highlight"></div>
                     </div>
+                    
                     <div class="form-group">
-                        <textarea id="message" rows="5" required></textarea>
-                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <label for="message">Message</label>
+                        <div class="form-highlight"></div>
                     </div>
-                    <button type="submit" class="btn btn-primary">
+                    
+                    <button type="submit" class="btn btn-primary" id="submitBtn">
                         <span>Send Message</span>
                         <i class="fas fa-paper-plane"></i>
                     </button>
@@ -411,21 +711,37 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2024 Aakash Jawle. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="#" class="footer-link">Privacy Policy</a>
-                    <a href="#" class="footer-link">Terms of Service</a>
+                <div class="footer-left">
+                    <p>&copy; 2024 Aakash Jawle. Built with <span class="heart">♥</span> and lots of coffee.</p>
+                </div>
+                <div class="footer-right">
+                    <div class="footer-links">
+                        <a href="./privacy.html" class="footer-link">Privacy</a>
+                        <a href="./terms.html" class="footer-link">Terms</a>
+                        <a href="./sitemap.xml" class="footer-link">Sitemap</a>
+                    </div>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop">
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
         <i class="fas fa-chevron-up"></i>
     </button>
 
     <!-- Cursor Follower -->
-    <div class="cursor-follower"></div>
+    <div class="cursor-follower" id="cursor"></div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <div class="notification-content">
+            <i class="notification-icon"></i>
+            <span class="notification-message"></span>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts.js"></script>
 </body>
 </html>
