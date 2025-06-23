@@ -1,5 +1,3 @@
-// Enhanced JavaScript for the personal website
-
 class PortfolioWebsite {
     constructor() {
         this.init();
@@ -7,7 +5,6 @@ class PortfolioWebsite {
 
     init() {
         this.setupEventListeners();
-        this.initAnimations();
         this.setupTypingAnimation();
         this.setupScrollAnimations();
         this.setupMobileMenu();
@@ -16,7 +13,6 @@ class PortfolioWebsite {
         this.setupFormHandling();
         this.setupSkillBars();
         this.setupCounterAnimation();
-        this.setupSmoothScrolling();
         this.setupActiveNavigation();
         this.preloadImages();
     }
@@ -25,8 +21,6 @@ class PortfolioWebsite {
         window.addEventListener('load', () => this.handlePageLoad());
         window.addEventListener('scroll', () => this.handleScroll());
         window.addEventListener('resize', () => this.handleResize());
-        
-        // Add loading animation
         this.showLoading();
     }
 
@@ -45,7 +39,6 @@ class PortfolioWebsite {
     }
 
     handlePageLoad() {
-        this.animateOnLoad();
         this.setupIntersectionObserver();
     }
 
@@ -59,7 +52,6 @@ class PortfolioWebsite {
         this.closeMobileMenu();
     }
 
-    // Navigation functionality
     setupMobileMenu() {
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
@@ -70,7 +62,6 @@ class PortfolioWebsite {
                 navMenu.classList.toggle('active');
             });
 
-            // Close menu when clicking on nav links
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.addEventListener('click', () => {
                     hamburger.classList.remove('active');
@@ -132,8 +123,7 @@ class PortfolioWebsite {
         let current = '';
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (scrollY >= sectionTop - 200) {
+            if (window.scrollY >= sectionTop - 200) {
                 current = section.getAttribute('id');
             }
         });
@@ -146,15 +136,14 @@ class PortfolioWebsite {
         });
     }
 
-    // Typing animation
     setupTypingAnimation() {
         const typingElement = document.querySelector('.typing-text');
         if (!typingElement) return;
 
         const texts = [
-            'Full Stack Developer',
             'Computer Engineering Student',
-            'Data Science Enthusiast',
+            'Full-Stack Developer',
+            'AI & ML Enthusiast',
             'Problem Solver',
             'Tech Innovator'
         ];
@@ -191,7 +180,6 @@ class PortfolioWebsite {
         typeText();
     }
 
-    // Scroll animations
     setupScrollAnimations() {
         const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
         
@@ -206,9 +194,7 @@ class PortfolioWebsite {
             rootMargin: '0px 0px -50px 0px'
         });
 
-        animatedElements.forEach(element => {
-            observer.observe(element);
-        });
+        animatedElements.forEach(element => observer.observe(element));
     }
 
     setupIntersectionObserver() {
@@ -221,33 +207,27 @@ class PortfolioWebsite {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('animate');
-                    
-                    // Trigger specific animations based on element
-                    if (entry.target.classList.contains('stats')) {
+                    if (entry.target.classList.contains('about-stats')) {
                         this.animateCounters();
                     }
-                    if (entry.target.classList.contains('skills-section')) {
+                    if (entry.target.classList.contains('skills-content')) {
                         this.animateSkillBars();
                     }
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.about-stats, .skills').forEach(el => {
-            observer.observe(el);
-        });
+        document.querySelectorAll('.about-stats, .skills-content').forEach(el => observer.observe(el));
     }
 
-    // Counter animation
     setupCounterAnimation() {
         const counters = document.querySelectorAll('.stat-number');
         
         const animateCounter = (counter) => {
             const target = parseInt(counter.getAttribute('data-count'));
-            const start = 0;
+            let current = 0;
             const duration = 2000;
             const increment = target / (duration / 16);
-            let current = start;
 
             const timer = setInterval(() => {
                 current += increment;
@@ -265,14 +245,13 @@ class PortfolioWebsite {
                 if (entry.isIntersecting) {
                     animateCounter(entry.target);
                     observer.unobserve(entry.target);
-                }
+                });
             });
         }, { threshold: 0.5 });
 
         counters.forEach(counter => observer.observe(counter));
     }
 
-    // Skill bars animation
     setupSkillBars() {
         const skillBars = document.querySelectorAll('.skill-level');
         
@@ -281,26 +260,12 @@ class PortfolioWebsite {
                 if (entry.isIntersecting) {
                     const level = entry.target.getAttribute('data-level');
                     entry.target.style.setProperty('--skill-width', `${level}%`);
-                    entry.target.style.setProperty('--skill-delay', '0.5s');
-                    
-                    setTimeout(() => {
-                        entry.target.querySelector('::before') || 
-                        entry.target.style.setProperty('width', `${level}%`);
-                    }, 500);
-                    
                     observer.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.5 });
 
-        skillBars.forEach(bar => {
-            observer.observe(bar);
-            // Add CSS animation
-            bar.addEventListener('animationstart', () => {
-                const level = bar.getAttribute('data-level');
-                bar.style.setProperty('--progress-width', `${level}%`);
-            });
-        });
+        skillBars.forEach(bar => observer.observe(bar));
     }
 
     animateSkillBars() {
@@ -310,16 +275,15 @@ class PortfolioWebsite {
                 const level = bar.getAttribute('data-level');
                 bar.style.setProperty('--skill-width', `${level}%`);
                 bar.classList.add('animate');
-            }, index * 200);
+            }, index * 50);
         });
     }
 
-    // Back to top functionality
     setupBackToTop() {
-        const backToTopButton = document.getElementById('backToTop');
-        if (!backToTopButton) return;
+        const button = document.getElementById('backToTop');
+        if (!button) return;
 
-        backToTopButton.addEventListener('click', () => {
+        button.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
@@ -328,53 +292,46 @@ class PortfolioWebsite {
     }
 
     updateBackToTop() {
-        const backToTopButton = document.getElementById('backToTop');
-        if (!backToTopButton) return;
+        const button = document.getElementById('backToTop');
+        if (!button) return;
 
         if (window.scrollY > 300) {
-            backToTopButton.classList.add('visible');
+            button.classList.add('visible');
         } else {
-            backToTopButton.classList.remove('visible');
+            button.classList.remove('visible');
         }
     }
 
-    // Cursor follower
     setupCursorFollower() {
-        if (window.innerWidth <= 768) return; // Disable on mobile
+        if (window.innerWidth <= 1024) return;
 
         const cursor = document.querySelector('.cursor-follower');
         if (!cursor) return;
 
-        let mouseX = 0;
-        let mouseY = 0;
-        let cursorX = 0;
-        let cursorY = 0;
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
 
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
         });
 
-        const animateCursor = () => {
+        const animate = () => {
             const speed = 0.15;
             cursorX += (mouseX - cursorX) * speed;
             cursorY += (mouseY - cursorY) * speed;
-            
-            cursor.style.left = cursorX + 'px';
-            cursor.style.top = cursorY + 'px';
-            
-            requestAnimationFrame(animateCursor);
+            cursor.style.left = `${cursorX}px`;
+            cursor.style.top = `${cursorY}px`;
+            requestAnimationFrame(animate);
         };
 
-        animateCursor();
+        animate();
 
-        // Add hover effects
         document.querySelectorAll('a, button, .project-card').forEach(element => {
             element.addEventListener('mouseenter', () => {
                 cursor.style.transform = 'scale(2)';
                 cursor.style.opacity = '0.5';
             });
-            
             element.addEventListener('mouseleave', () => {
                 cursor.style.transform = 'scale(1)';
                 cursor.style.opacity = '0.7';
@@ -382,46 +339,76 @@ class PortfolioWebsite {
         });
     }
 
-    // Form handling
     setupFormHandling() {
-        const contactForm = document.querySelector('.contact-form');
-        if (!contactForm) return;
+        const form = document.querySelector('.contact-form');
+        if (!form) return;
 
-        contactForm.addEventListener('submit', (e) => {
+        form.addEventListener('submit', (e) => {
             e.preventDefault();
-            this.handleFormSubmission(contactForm);
+            this.handleFormSubmission(form);
         });
 
-        // Add floating label effect
-        const formInputs = contactForm.querySelectorAll('input, textarea');
-        formInputs.forEach(input => {
-            input.addEventListener('blur', () => {
-                if (input.value.trim() !== '') {
-                    input.classList.add('has-value');
-                } else {
-                    input.classList.remove('has-value');
-                }
+        const inputs = form.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('input', () => {
+                input.classList.toggle('has-value', input.value.trim() !== '');
             });
         });
     }
 
     handleFormSubmission(form) {
         const formData = new FormData(form);
-        const submitButton = form.querySelector('button[type="submit"]');
-        const originalText = submitButton.innerHTML;
+        const button = form.querySelector('button[type="submit"]');
+        const originalText = button.innerHTML;
 
-        // Show loading state
-        submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-        submitButton.disabled = true;
+        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        button.disabled = true;
 
-        // Simulate form submission (replace with actual implementation)
+        // Simulate form submission
         setTimeout(() => {
-            this.showNotification('Message sent successfully!', 'success');
-            form.reset();
-            submitButton.innerHTML = originalText;
-            submitButton.disabled = false;
-        }, 2000);
+            const email = formData.get('email');
+            if (!email.includes('@')) {
+                this.showNotification('Please enter a valid email address.', 'error');
+            } else {
+                this.showNotification('Message sent successfully!', 'success');
+                form.reset();
+                form.querySelectorAll('input, textarea').forEach(input => {
+                    input.classList.remove('has-value');
+                });
+            }
+            button.innerHTML = originalText;
+            button.disabled = false;
+        }, 1000);
     }
 
     showNotification(message, type = 'info') {
-        
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+            notification.classList.add('visible');
+            setTimeout(() => {
+                notification.classList.remove('visible');
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }, 100);
+    }
+
+    preloadImages() {
+        const images = document.querySelectorAll('img');
+        images.forEach(img => {
+            const src = img.getAttribute('src');
+            if (src) {
+                const link = document.createElement('link');
+                link.rel = 'preload';
+                link.as = 'image';
+                link.href = src;
+                document.head.appendChild(link);
+            }
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => new PortfolioWebsite());
