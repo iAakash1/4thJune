@@ -7,15 +7,15 @@ import 'aos/dist/aos.css';
 
 // Components
 import Navbar from './components/Navbar/Navbar';
-import Hero from './components/Hero/Hero';
+import Hero from './components/Hero/HeroNew';
 import About from './components/About/About';
 import Projects from './components/Projects/Projects';
 import Skills from './components/Skills/Skills';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
-import LoadingScreen from './components/LoadingScreen/LoadingScreen';
-import ParticleBackground from './components/ParticleBackground/ParticleBackground';
+import LoadingScreen from './components/LoadingScreen/LoadingScreenNew';
+import AnimatedBackground from './components/AnimatedBackground/AnimatedBackground';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -43,7 +43,7 @@ function App() {
 
   return (
     <div className="App">
-      <ParticleBackground />
+      <AnimatedBackground />
       <Navbar />
       <Routes>
         <Route path="/" element={
@@ -68,7 +68,12 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light"
+        theme="dark"
+        toastStyle={{
+          background: 'rgba(15, 23, 42, 0.9)',
+          backdropFilter: 'blur(10px)',
+          border: '1px solid rgba(102, 126, 234, 0.3)',
+        }}
       />
     </div>
   );

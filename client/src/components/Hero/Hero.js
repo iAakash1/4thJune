@@ -1,12 +1,15 @@
-import React, { useEffect, useRef } from 'react';
-import { Box, Container, Typography, Button, IconButton, Grid } from '@mui/material';
-import { motion } from 'framer-motion';
+import React, { useEffect, useRef, useState } from 'react';
+import { Box, Container, Typography, Button, IconButton, Grid, Avatar } from '@mui/material';
+import { motion, useAnimation, useMotionValue, useTransform } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Typed from 'typed.js';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import CodeIcon from '@mui/icons-material/Code';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
+import ThreeScene from '../ThreeScene/ThreeScene';
 import './Hero.css';
 
 const Hero = () => {
@@ -16,15 +19,31 @@ const Hero = () => {
   });
   
   const typedRef = useRef(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const controls = useAnimation();
+  
+  // Mouse tracking for interactive effects
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth) * 2 - 1,
+        y: (e.clientY / window.innerHeight) * 2 - 1,
+      });
+    };
+    
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
   useEffect(() => {
     if (typedRef.current) {
       const typed = new Typed(typedRef.current, {
         strings: [
-          'Full Stack Developer',
-          'AI & ML Enthusiast', 
-          'Problem Solver',
-          'Tech Innovator',
+          'Full Stack Developer 🚀',
+          'AI & ML Enthusiast 🤖', 
+          'Problem Solver 💡',
+          'Tech Innovator ⚡',
+          'Creative Coder 🎨',
         ],
         typeSpeed: 50,
         backSpeed: 30,
@@ -39,18 +58,49 @@ const Hero = () => {
     }
   }, []);
 
+  // Advanced animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        duration: 0.6,
+        duration: 0.8,
         staggerChildren: 0.2,
       },
     },
   };
 
   const itemVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 50,
+      scale: 0.8,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 15,
+      },
+    },
+  };
+
+  const floatingVariants = {
+    animate: {
+      y: [-10, 10, -10],
+      rotate: [-5, 5, -5],
+      transition: {
+        duration: 4,
+        repeat: Infinity,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const socialItemVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
