@@ -19,7 +19,6 @@ const Hero = () => {
   
   const typedRef = useRef(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  // const controls = useAnimation(); // Commented out unused variable
   
   // Mouse tracking for interactive effects
   useEffect(() => {
