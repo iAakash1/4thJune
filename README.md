@@ -2,7 +2,12 @@
 
 A modern, responsive portfolio website built with React, Express, and Node.js featuring stunning animations, particle effects, and a complete backend API.
 
-## 🚀 Features
+## � Recent Updates (Dec 2024)
+- Fixed ESLint errors for successful Vercel deployment
+- Optimized build configuration with CI environment settings
+- Enhanced TypeScript support and dependency management
+
+## �🚀 Features
 
 - **Modern React Frontend** with Material-UI and Framer Motion animations
 - **Express.js Backend** with contact form and project API
