@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Box, Container, Typography, Button, IconButton, Grid, Avatar } from '@mui/material';
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Typed from 'typed.js';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -19,7 +19,7 @@ const Hero = () => {
   
   const typedRef = useRef(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const controls = useAnimation();
+  // const controls = useAnimation(); // Commented out unused variable
   
   // Mouse tracking for interactive effects
   useEffect(() => {

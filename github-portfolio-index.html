@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Aakash Jawle - Web Developer & Designer. Passionate about creating innovative solutions through technology." />
+    <meta name="keywords" content="Aakash Jawle, Web Developer, Portfolio, HTML, CSS, JavaScript, Web Design" />
+    <meta name="author" content="Aakash Jawle" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Aakash Jawle - Portfolio" />
+    <meta property="og:description" content="Web Developer & Designer passionate about creating innovative digital experiences" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://personalwebsiteofaakash.vercel.app" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    
+    <!-- Box Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    
+    <!-- Preload important resources -->
+    <link rel="preload" href="assets/css/styles.css" as="style" />
+    <link rel="preload" href="assets/js/main.js" as="script" />
+    
+    <title>Aakash Jawle - Portfolio Website</title>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loader">
+            <div class="loader-inner"></div>
+        </div>
+    </div>
+
+    <!--===== HEADER =====-->
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="#home" class="nav__logo">Aakash Jawle</a>
+            </div>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+                    <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="bx bx-menu"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="l-main">
+        <!--===== HOME =====-->
+        <section class="home bd-grid" id="home">
+            <div class="home__data">
+                <h1 class="home__title">
+                    Hi,<br />
+                    I'm <span class="home__title-color">Aakash Jawle</span><br />
+                    Web Developer
+                </h1>
+                <p class="home__description">
+                    Passionate about creating innovative digital experiences through clean code and thoughtful design.
+                </p>
+                <a href="#contact" class="button">Get In Touch</a>
+            </div>
+
+            <div class="home__social">
+                <a href="https://linkedin.com/in/aakash-jawle" target="_blank" rel="noopener noreferrer" class="home__social-icon" aria-label="LinkedIn">
+                    <i class="bx bxl-linkedin"></i>
+                </a>
+                <a href="https://github.com/iAakash1" target="_blank" rel="noopener noreferrer" class="home__social-icon" aria-label="GitHub">
+                    <i class="bx bxl-github"></i>
+                </a>
+                <a href="https://behance.net/aakashjawle" target="_blank" rel="noopener noreferrer" class="home__social-icon" aria-label="Behance">
+                    <i class="bx bxl-behance"></i>
+                </a>
+            </div>
+
+            <div class="home__img">
+                <svg
+                    class="home__blob"
+                    viewBox="0 0 479 467"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                    <mask id="mask0" mask-type="alpha">
+                        <path
+                            d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"
+                        />
+                    </mask>
+                    <g mask="url(#mask0)">
+                        <path
+                            d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"
+                        />
+                        <image class="home__blob-img" x="50" y="60" href="assets/img/perfil.png" />
+                    </g>
+                </svg>
+            </div>
+        </section>
+
+        <!--===== ABOUT =====-->
+        <section class="about section" id="about">
+            <h2 class="section-title">About</h2>
+            <div class="about__container bd-grid">
+                <div class="about__img">
+                    <img src="assets/img/about.jpg" alt="Aakash Jawle" loading="lazy" />
+                </div>
+                <div>
+                    <h2 class="about__subtitle">I'm Aakash Jawle</h2>
+                    <p class="about__text">
+                        I'm a passionate web developer focused on crafting engaging and
+                        user-friendly digital experiences. Skilled in HTML, CSS, and
+                        JavaScript, with a keen eye for UX/UI design. I love turning
+                        complex problems into simple, beautiful solutions.
+                    </p>
+                    <div class="about__stats">
+                        <div class="stat">
+                            <h3>50+</h3>
+                            <p>Projects Completed</p>
+                        </div>
+                        <div class="stat">
+                            <h3>2+</h3>
+                            <p>Years Experience</p>
+                        </div>
+                        <div class="stat">
+                            <h3>100%</h3>
+                            <p>Client Satisfaction</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--===== SKILLS =====-->
+        <section class="skills section" id="skills">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills__container bd-grid">
+                <div>
+                    <h2 class="skills__subtitle">Professional Skills</h2>
+                    <p class="skills__text">
+                        Experienced in front-end development and design principles to
+                        create responsive and visually appealing websites.
+                    </p>
+                    <div class="skills__data">
+                        <div class="skills__names">
+                            <i class="bx bxl-html5 skills__icon"></i>
+                            <span class="skills__name">HTML5</span>
+                        </div>
+                        <div class="skills__bar skills__html"></div>
+                        <div>
+                            <span class="skills__percentage">95%</span>
+                        </div>
+                    </div>
+                    <div class="skills__data">
+                        <div class="skills__names">
+                            <i class="bx bxl-css3 skills__icon"></i>
+                            <span class="skills__name">CSS3</span>
+                        </div>
+                        <div class="skills__bar skills__css"></div>
+                        <div>
+                            <span class="skills__percentage">85%</span>
+                        </div>
+                    </div>
+                    <div class="skills__data">
+                        <div class="skills__names">
+                            <i class="bx bxl-javascript skills__icon"></i>
+                            <span class="skills__name">JavaScript</span>
+                        </div>
+                        <div class="skills__bar skills__js"></div>
+                        <div>
+                            <span class="skills__percentage">75%</span>
+                        </div>
+                    </div>
+                    <div class="skills__data">
+                        <div class="skills__names">
+                            <i class="bx bxl-react skills__icon"></i>
+                            <span class="skills__name">React</span>
+                        </div>
+                        <div class="skills__bar skills__react"></div>
+                        <div>
+                            <span class="skills__percentage">70%</span>
+                        </div>
+                    </div>
+                    <div class="skills__data">
+                        <div class="skills__names">
+                            <i class="bx bxs-paint skills__icon"></i>
+                            <span class="skills__name">UX/UI</span>
+                        </div>
+                        <div class="skills__bar skills__ux"></div>
+                        <div>
+                            <span class="skills__percentage">85%</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="assets/img/work3.jpg" alt="Work showcase" class="skills__img" loading="lazy" />
+                </div>
+            </div>
+        </section>
+
+        <!--===== WORK =====-->
+        <section class="work section" id="work">
+            <h2 class="section-title">Portfolio</h2>
+            <div class="work__container bd-grid">
+                <div class="work__item">
+                    <img src="assets/img/work1.jpg" alt="Project 1" class="work__img" loading="lazy" />
+                    <div class="work__overlay">
+                        <h3>E-commerce Website</h3>
+                        <p>Modern online store with responsive design</p>
+                        <div class="work__links">
+                            <a href="#" class="work__link" aria-label="View project"><i class="bx bx-link-external"></i></a>
+                            <a href="#" class="work__link" aria-label="View code"><i class="bx bxl-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="work__item">
+                    <img src="assets/img/work2.jpg" alt="Project 2" class="work__img" loading="lazy" />
+                    <div class="work__overlay">
+                        <h3>Portfolio Website</h3>
+                        <p>Personal portfolio with modern animations</p>
+                        <div class="work__links">
+                            <a href="#" class="work__link" aria-label="View project"><i class="bx bx-link-external"></i></a>
+                            <a href="#" class="work__link" aria-label="View code"><i class="bx bxl-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="work__item">
+                    <img src="assets/img/work3.jpg" alt="Project 3" class="work__img" loading="lazy" />
+                    <div class="work__overlay">
+                        <h3>Mobile App Design</h3>
+                        <p>UI/UX design for mobile application</p>
+                        <div class="work__links">
+                            <a href="#" class="work__link" aria-label="View project"><i class="bx bx-link-external"></i></a>
+                            <a href="#" class="work__link" aria-label="View code"><i class="bx bxl-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="work__item">
+                    <img src="assets/img/work4.jpg" alt="Project 4" class="work__img" loading="lazy" />
+                    <div class="work__overlay">
+                        <h3>Web Application</h3>
+                        <p>Full-stack web application with modern features</p>
+                        <div class="work__links">
+                            <a href="#" class="work__link" aria-label="View project"><i class="bx bx-link-external"></i></a>
+                            <a href="#" class="work__link" aria-label="View code"><i class="bx bxl-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="work__item">
+                    <img src="assets/img/work5.jpg" alt="Project 5" class="work__img" loading="lazy" />
+                    <div class="work__overlay">
+                        <h3>Landing Page</h3>
+                        <p>Conversion-focused landing page design</p>
+                        <div class="work__links">
+                            <a href="#" class="work__link" aria-label="View project"><i class="bx bx-link-external"></i></a>
+                            <a href="#" class="work__link" aria-label="View code"><i class="bx bxl-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="work__item">
+                    <img src="assets/img/work6.jpg" alt="Project 6" class="work__img" loading="lazy" />
+                    <div class="work__overlay">
+                        <h3>Dashboard Design</h3>
+                        <p>Admin dashboard with data visualization</p>
+                        <div class="work__links">
+                            <a href="#" class="work__link" aria-label="View project"><i class="bx bx-link-external"></i></a>
+                            <a href="#" class="work__link" aria-label="View code"><i class="bx bxl-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--===== CONTACT =====-->
+        <section class="contact section" id="contact">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact__container bd-grid">
+                <form action="#" class="contact__form" id="contact-form">
+                    <input type="text" placeholder="Name" class="contact__input" required />
+                    <input type="email" placeholder="Email" class="contact__input" required />
+                    <textarea cols="0" rows="10" placeholder="Your Message" class="contact__input" required></textarea>
+                    <button type="submit" class="contact__button button">Send Message</button>
+                </form>
+                <div class="contact__info">
+                    <h3>Let's work together!</h3>
+                    <p>I'm always open to discussing new opportunities and exciting projects.</p>
+                    <div class="contact__data">
+                        <i class="bx bx-phone contact__icon"></i>
+                        <span>+91 87673 84453</span>
+                    </div>
+                    <div class="contact__data">
+                        <i class="bx bx-envelope contact__icon"></i>
+                        <span>aakashjawle1010@gmail.com</span>
+                    </div>
+                    <div class="contact__data">
+                        <i class="bx bx-map contact__icon"></i>
+                        <span>Pune, Maharashtra, India</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--===== FOOTER =====-->
+    <footer class="footer">
+        <p class="footer__title">Aakash Jawle</p>
+        <div class="footer__social">
+            <a href="https://linkedin.com/in/aakash-jawle" target="_blank" rel="noopener noreferrer" class="footer__icon" aria-label="LinkedIn">
+                <i class="bx bxl-linkedin"></i>
+            </a>
+            <a href="https://github.com/iAakash1" target="_blank" rel="noopener noreferrer" class="footer__icon" aria-label="GitHub">
+                <i class="bx bxl-github"></i>
+            </a>
+            <a href="https://behance.net/aakashjawle" target="_blank" rel="noopener noreferrer" class="footer__icon" aria-label="Behance">
+                <i class="bx bxl-behance"></i>
+            </a>
+        </div>
+        <p class="footer__copy">&#169; 2024 Aakash Jawle. All rights reserved.</p>
+    </footer>
+
+    <!--===== SCROLL REVEAL =====-->
+    <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+
+    <!--===== MAIN JS =====-->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -35,7 +35,7 @@ const Projects = () => {
   const [categories, setCategories] = useState([]);
   const [activeCategory, setActiveCategory] = useState(0);
   const [selectedProject, setSelectedProject] = useState(null);
-  const [loading, setLoading] = useState(true);
+  // Loading state removed as it's not used in the component
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
@@ -50,7 +50,7 @@ const Projects = () => {
       const response = await axios.get('/api/projects');
       setProjects(response.data);
       setFilteredProjects(response.data);
-      setLoading(false);
+      // setLoading(false); // Removed as loading state is not used
     } catch (error) {
       console.error('Error fetching projects:', error);
       // Fallback to static data
@@ -98,7 +98,7 @@ const Projects = () => {
       ];
       setProjects(staticProjects);
       setFilteredProjects(staticProjects);
-      setLoading(false);
+      // setLoading(false); // Removed as loading state is not used
     }
   };
 

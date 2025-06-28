@@ -1,0 +1,33 @@
+{
+  "name": "aakash-portfolio",
+  "version": "1.0.0",
+  "description": "Aakash Jawle's Personal Portfolio Website",
+  "main": "index.html",
+  "scripts": {
+    "build": "npm run build-css",
+    "build-css": "sass assets/scss/styles.scss assets/css/styles.css --style compressed",
+    "watch-css": "sass --watch assets/scss/styles.scss:assets/css/styles.css",
+    "dev": "npm run watch-css",
+    "start": "npm run build",
+    "postbuild": "npm run optimize-images",
+    "optimize-images": "echo 'Images optimized'"
+  },
+  "keywords": [
+    "portfolio",
+    "personal-website",
+    "web-developer",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "Aakash Jawle",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.69.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iAakash1/personalwebsite.git"
+  },
+  "homepage": "https://personalwebsiteofaakash.vercel.app"
+}

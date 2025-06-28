@@ -6,14 +6,14 @@ const LoadingScreenNew = () => {
   const [progress, setProgress] = useState(0);
   const [loadingText, setLoadingText] = useState('');
   
-  const texts = [
-    'Initializing creativity...',
-    'Loading innovations...',
-    'Preparing magic...',
-    'Almost ready...',
-  ];
-
   useEffect(() => {
+    const texts = [
+      'Initializing creativity...',
+      'Loading innovations...',
+      'Preparing magic...',
+      'Almost ready...',
+    ];
+
     const interval = setInterval(() => {
       setProgress((prev) => {
         const newProgress = prev + Math.random() * 15;
@@ -29,7 +29,7 @@ const LoadingScreenNew = () => {
       clearInterval(interval);
       clearInterval(textInterval);
     };
-  }, []);
+  }, []); // Moved texts inside useEffect to fix the warning
 
   return (
     <AnimatePresence>

@@ -1,0 +1,15 @@
+# Vercel ignore file
+node_modules
+.git
+*.log
+.DS_Store
+client/node_modules
+server/node_modules
+client/src
+client/public
+!client/build
+*.md
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
