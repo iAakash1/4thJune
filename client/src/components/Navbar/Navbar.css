@@ -1,0 +1,7 @@
+/* Navbar specific styles will be handled by MUI */
+.navbar-brand {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
