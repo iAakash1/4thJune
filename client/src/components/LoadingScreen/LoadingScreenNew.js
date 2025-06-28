@@ -29,7 +29,7 @@ const LoadingScreenNew = () => {
       clearInterval(interval);
       clearInterval(textInterval);
     };
-  }, []); // Moved texts inside useEffect to fix the warning
+  }, []); // Fixed: texts array moved inside useEffect for ESLint compliance
 
   return (
     <AnimatePresence>

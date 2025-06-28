@@ -35,7 +35,7 @@ const Projects = () => {
   const [categories, setCategories] = useState([]);
   const [activeCategory, setActiveCategory] = useState(0);
   const [selectedProject, setSelectedProject] = useState(null);
-  // Loading state removed as it's not used in the component
+  // Loading state completely removed for ESLint compliance
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));

@@ -20,7 +20,7 @@ const Hero = () => {
   const typedRef = useRef(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   
-  // Mouse tracking for interactive effects
+  // Mouse tracking for interactive effects (controls variable removed for ESLint compliance)
   useEffect(() => {
     const handleMouseMove = (e) => {
       setMousePosition({
