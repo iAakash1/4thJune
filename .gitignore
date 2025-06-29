@@ -56,3 +56,4 @@ pids
 
 # Uploads
 uploads/
+.vercel
