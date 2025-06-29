@@ -2,10 +2,10 @@
   "version": 2,
   "builds": [
     {
-      "src": "client/package.json",
+      "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "build"
+        "distDir": "client/build"
       }
     },
     {
@@ -29,14 +29,6 @@
       "dest": "/client/build/index.html"
     }
   ],
-  "buildCommand": "cd client && npm ci --legacy-peer-deps && npm run build:vercel",
-  "outputDirectory": "client/build",
-  "installCommand": "npm ci && cd client && npm ci --legacy-peer-deps && cd ../server && npm ci",
-  "functions": {
-    "server/index.js": {
-      "maxDuration": 30
-    }
-  },
   "env": {
     "NODE_ENV": "production",
     "CI": "false",
