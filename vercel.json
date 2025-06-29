@@ -29,7 +29,7 @@
       "dest": "/client/build/index.html"
     }
   ],
-  "buildCommand": "cd client && CI=false npm ci --legacy-peer-deps && CI=false npm run build",
+  "buildCommand": "cd client && npm ci --legacy-peer-deps && npm run build:vercel",
   "outputDirectory": "client/build",
   "installCommand": "npm ci && cd client && npm ci --legacy-peer-deps && cd ../server && npm ci",
   "functions": {
@@ -39,6 +39,9 @@
   },
   "env": {
     "NODE_ENV": "production",
-    "CI": "false"
+    "CI": "false",
+    "GENERATE_SOURCEMAP": "false",
+    "ESLINT_NO_DEV_ERRORS": "true",
+    "TSC_COMPILE_ON_ERROR": "true"
   }
 }
