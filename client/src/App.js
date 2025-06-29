@@ -5,6 +5,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+// Enhanced Styles
+import './styles/glassmorphism.css';
+
 // Components
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/HeroNew';
@@ -16,6 +19,7 @@ import Footer from './components/Footer/Footer';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import LoadingScreen from './components/LoadingScreen/LoadingScreenNew';
 import AnimatedBackground from './components/AnimatedBackground/AnimatedBackground';
+import ScrollProgressIndicator from './components/ScrollProgressIndicator/ScrollProgressIndicator';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -43,6 +47,7 @@ function App() {
 
   return (
     <div className="App">
+      <ScrollProgressIndicator />
       <AnimatedBackground />
       <Navbar />
       <Routes>
