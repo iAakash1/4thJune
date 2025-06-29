@@ -1,13 +1,13 @@
-# Vercel ignore file
+# Development files
 node_modules
 .git
-*.log
 .DS_Store
-client/node_modules
-server/node_modules
+*.log
+
+# Keep only production build
 !client/build
-*.md
+
+# Environment files (except production)
 .env.local
 .env.development.local
 .env.test.local
-.env.production.local
