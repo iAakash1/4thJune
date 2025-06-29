@@ -29,6 +29,8 @@
       "dest": "/client/build/index.html"
     }
   ],
+  "installCommand": "npm install && cd client && npm install --legacy-peer-deps && cd ../server && npm install",
+  "buildCommand": "cd client && npm install --legacy-peer-deps && npm run build:vercel",
   "env": {
     "NODE_ENV": "production",
     "CI": "false",
