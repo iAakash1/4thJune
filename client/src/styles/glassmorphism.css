@@ -236,6 +236,236 @@
   100% { background-position: 200% 0; }
 }
 
+/* ===== ULTRA ENHANCED GLASSMORPHISM EFFECTS ===== */
+
+.glass-ultra {
+  background: rgba(15, 23, 42, 0.25);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  border-radius: 24px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.25),
+    0 4px 16px rgba(102, 126, 234, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-ultra::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.1), 
+    transparent);
+  transition: left 0.8s ease;
+}
+
+.glass-ultra:hover::before {
+  left: 100%;
+}
+
+.glass-ultra:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.3),
+    0 8px 32px rgba(102, 126, 234, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 0 40px rgba(102, 126, 234, 0.2);
+  border-color: rgba(102, 126, 234, 0.5);
+}
+
+.glass-card-3d {
+  background: linear-gradient(135deg, 
+    rgba(15, 23, 42, 0.4) 0%, 
+    rgba(30, 41, 59, 0.3) 50%, 
+    rgba(51, 65, 85, 0.2) 100%);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(102, 126, 234, 0.25);
+  border-radius: 20px;
+  padding: 2rem;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.glass-card-3d::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+    rgba(102, 126, 234, 0.1) 0%, 
+    transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.glass-card-3d:hover::after {
+  opacity: 1;
+}
+
+.glass-card-3d:hover {
+  transform: rotateX(5deg) rotateY(5deg) translateZ(20px);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.35),
+    0 10px 25px rgba(102, 126, 234, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Morphing Gradient Backgrounds */
+.morphing-gradient {
+  background: linear-gradient(45deg, 
+    rgba(102, 126, 234, 0.8) 0%,
+    rgba(59, 130, 246, 0.7) 25%,
+    rgba(16, 185, 129, 0.6) 50%,
+    rgba(139, 92, 246, 0.7) 75%,
+    rgba(249, 115, 22, 0.8) 100%);
+  background-size: 400% 400%;
+  animation: morphingGradient 8s ease-in-out infinite;
+}
+
+@keyframes morphingGradient {
+  0%, 100% { background-position: 0% 50%; }
+  25% { background-position: 100% 50%; }
+  50% { background-position: 100% 100%; }
+  75% { background-position: 0% 100%; }
+}
+
+/* Floating Animation for Cards */
+.floating-card {
+  animation: floatingCard 6s ease-in-out infinite;
+}
+
+@keyframes floatingCard {
+  0%, 100% { 
+    transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+  }
+  25% { 
+    transform: translateY(-10px) rotateX(2deg) rotateY(-1deg);
+  }
+  50% { 
+    transform: translateY(-5px) rotateX(-1deg) rotateY(2deg);
+  }
+  75% { 
+    transform: translateY(-15px) rotateX(1deg) rotateY(-2deg);
+  }
+}
+
+/* Parallax Glass Effect */
+.parallax-glass {
+  background: rgba(15, 23, 42, 0.15);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-glass::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    rgba(102, 126, 234, 0.1) 0deg,
+    rgba(59, 130, 246, 0.1) 90deg,
+    rgba(16, 185, 129, 0.1) 180deg,
+    rgba(139, 92, 246, 0.1) 270deg,
+    rgba(102, 126, 234, 0.1) 360deg
+  );
+  animation: parallaxRotate 20s linear infinite;
+  z-index: -1;
+}
+
+@keyframes parallaxRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Neon Glow Effects */
+.neon-glow {
+  position: relative;
+  color: #ffffff;
+  text-shadow: 
+    0 0 5px rgba(102, 126, 234, 0.8),
+    0 0 10px rgba(102, 126, 234, 0.6),
+    0 0 15px rgba(102, 126, 234, 0.4),
+    0 0 20px rgba(102, 126, 234, 0.2);
+  animation: neonPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes neonPulse {
+  from {
+    text-shadow: 
+      0 0 5px rgba(102, 126, 234, 0.8),
+      0 0 10px rgba(102, 126, 234, 0.6),
+      0 0 15px rgba(102, 126, 234, 0.4),
+      0 0 20px rgba(102, 126, 234, 0.2);
+  }
+  to {
+    text-shadow: 
+      0 0 10px rgba(102, 126, 234, 1),
+      0 0 20px rgba(102, 126, 234, 0.8),
+      0 0 30px rgba(102, 126, 234, 0.6),
+      0 0 40px rgba(102, 126, 234, 0.4);
+  }
+}
+
+/* Holographic Effect */
+.holographic {
+  background: linear-gradient(45deg, 
+    rgba(102, 126, 234, 0.2) 0%,
+    rgba(59, 130, 246, 0.3) 25%,
+    rgba(16, 185, 129, 0.2) 50%,
+    rgba(139, 92, 246, 0.3) 75%,
+    rgba(249, 115, 22, 0.2) 100%);
+  background-size: 400% 400%;
+  animation: holographicShift 3s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.holographic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.4), 
+    transparent);
+  animation: holographicSweep 4s ease-in-out infinite;
+}
+
+@keyframes holographicShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes holographicSweep {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
 /* Responsive Design Helpers */
 @media (max-width: 768px) {
   .glass-card {

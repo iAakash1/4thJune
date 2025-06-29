@@ -10,50 +10,51 @@ import './styles/glassmorphism.css';
 
 // Components
 import Navbar from './components/Navbar/Navbar';
-import Hero from './components/Hero/HeroNew';
+import HeroStunning from './components/Hero/HeroStunning';
 import About from './components/About/About';
 import Projects from './components/Projects/Projects';
 import Skills from './components/Skills/Skills';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
-import LoadingScreen from './components/LoadingScreen/LoadingScreenNew';
-import AnimatedBackground from './components/AnimatedBackground/AnimatedBackground';
+import LoadingScreenUltra from './components/LoadingScreen/LoadingScreenUltra';
+import UltraBackground from './components/UltraBackground/UltraBackground';
 import ScrollProgressIndicator from './components/ScrollProgressIndicator/ScrollProgressIndicator';
 
 function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Initialize AOS
+    // Initialize AOS with enhanced settings
     AOS.init({
-      duration: 1000,
+      duration: 1200,
       easing: 'ease-out-cubic',
       once: true,
-      offset: 100,
+      offset: 80,
+      delay: 100,
     });
 
-    // Simulate loading time
+    // Enhanced loading experience
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 3500);
 
     return () => clearTimeout(timer);
   }, []);
 
   if (loading) {
-    return <LoadingScreen />;
+    return <LoadingScreenUltra />;
   }
 
   return (
     <div className="App">
       <ScrollProgressIndicator />
-      <AnimatedBackground />
+      <UltraBackground />
       <Navbar />
       <Routes>
         <Route path="/" element={
           <>
-            <Hero />
+            <HeroStunning />
             <About />
             <Projects />
             <Skills />
